@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+        <meta charset="utf-8" />
+        <meta name=viewport content="width=device-width, initial-scale=1">
+        <title>Parser di espressioni aritmetiche</title>
+        <link rel="stylesheet" href="http://blog.gambuzzi.it/theme/css/main.css" />
+
+        <!--[if IE]>
+            <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script src="http://blog.gambuzzi.it/theme/js/fuzzyset.js"></script>
+		<meta name="google-site-verification" content="62DfkLCugSzm-vW0NRbnM2aCMcGu7uqfsXjED71GNbI" />
+    <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-54060223-1']);
+    _gaq.push(['_trackPageview']);
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+    </script>
+<script type="text/javascript">
+  var _gauges = _gauges || [];
+  (function() {
+    var t   = document.createElement('script');
+    t.type  = 'text/javascript';
+    t.async = true;
+    t.id    = 'gauges-tracker';
+    t.setAttribute('data-site-id', '550ab326de2e26670a017635');
+    t.setAttribute('data-track-path', 'https://track.gaug.es/track.gif');
+    t.src = 'https://track.gaug.es/track.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(t, s);
+  })();
+</script>
+</head>
+
+<body id="index" class="home lang- 1.0.0">
+        <header id="banner" class="body">
+                <h1><a href="http://blog.gambuzzi.it/">Frammenti di codice  <strong>e amenità varie</strong></a></h1>
+
+                <div class="langchange"><ul>
+                        <li><a href="http://blog.gambuzzi.it/en"><img src="http://blog.gambuzzi.it/theme/images/en.png" alt="en"/></a></li>
+                    <!-- separator -->
+                    </ul>
+                </div>
+
+                <form id="headsearch" action='/search.html' method="GET">cerca: <input type="text" name="q" id="q0" /></form>
+
+                <nav><ul>
+                    <li><a href="http://blog.gambuzzi.it/category/anoto-digital-paper.html">Anoto Digital Paper</a></li>
+                    <li><a href="http://blog.gambuzzi.it/category/javascript.html">Javascript</a></li>
+                    <li><a href="http://blog.gambuzzi.it/category/magento.html">Magento</a></li>
+                    <li><a href="http://blog.gambuzzi.it/category/mix.html">Mix</a></li>
+                    <li><a href="http://blog.gambuzzi.it/category/php.html">Php</a></li>
+                    <li class="active"><a href="http://blog.gambuzzi.it/category/python.html">Python</a></li>
+                    <li><a href="http://blog.gambuzzi.it/category/windows.html">Windows</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="http://blog.gambuzzi.it/parser-di-espressioni-aritmetiche.html" rel="bookmark"
+           title="Permalink a Parser di espressioni aritmetiche">Parser di espressioni aritmetiche</a></h1>
+<a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="gbinside">Tweet</a><script type="text/javascript" src="//platform.twitter.com/widgets.js"></script>
+    </header>
+
+    <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2012-07-12T00:00:00">
+                Pubblicato: 12 07 2012
+        </abbr>
+
+        <address class="vcard author">
+                Da                         <a class="url fn" href="http://blog.gambuzzi.it/author/roberto-gambuzzi.html">Roberto Gambuzzi</a>
+        </address>
+<p>In <a href="http://blog.gambuzzi.it/category/python.html">Python</a>. </p>
+<p>tags: <a href="http://blog.gambuzzi.it/tag/python.html">python</a> </p>
+</footer><!-- /.post-info -->      <p>Che bisogno c'è di scrivere un parse per qualcosa che può essere valutata più efficientemente da un <code>eval</code>? Direi nessuna, ma questo esercizio è stato il preludio (2005) ad un parser più complicato che pubblicherò in futuro.</p>
+<p>Data una stringa</p>
+<div class="highlight"><pre><span class="s">&quot;((1+2)*4+1)*6/(2+1)&quot;</span>
+</pre></div>
+
+
+<p>Le regex non ci possono venire in aiuto più di tanto per la mancanza di un sistema di bilanciamento dei match multipli. Alcuni altri motori regex (credo quello del C#) hanno questa funzione, ma (almeno nel 2005) python non lo ha.</p>
+<p>L'idea è quella di elaborare le parentesi più interne e poi sostituirne il valore (togliendo quindi le parentesi), procedendo così fino a non avere più parentesi. Alla fine si valuta l'espressione risultante.</p>
+<p>Per processare prima le espressioni più interne si parte cercando la prima parentesi chiusa, con un <code>stringa.find(')')</code>, poi da questo punto si cerca la parentesi aperta più a destra nella stringa con un <code>stringa.rfind('(',0,posizione_parentesi_chiusa)</code></p>
+<p>Una altra cosa da fare è valutare la precedenza degli operatori, per rendere vere le asserzioni:</p>
+<div class="highlight"><pre><span class="k">assert</span> <span class="n">splitta</span><span class="p">(</span><span class="s">&#39;1+2*3&#39;</span><span class="p">)</span><span class="o">==</span><span class="p">[</span><span class="s">&#39;+&#39;</span><span class="p">,</span> <span class="s">&#39;1&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s">&#39;*&#39;</span><span class="p">,</span> <span class="s">&#39;2&#39;</span><span class="p">,</span> <span class="s">&#39;3&#39;</span><span class="p">]]</span>
+<span class="k">assert</span> <span class="n">splitta</span><span class="p">(</span><span class="s">&#39;1+2+3+4*4&#39;</span><span class="p">)</span><span class="o">==</span><span class="p">[</span><span class="s">&#39;+&#39;</span><span class="p">,</span> <span class="s">&#39;1&#39;</span><span class="p">,</span> <span class="s">&#39;2&#39;</span><span class="p">,</span> <span class="s">&#39;3&#39;</span><span class="p">,[</span><span class="s">&#39;*&#39;</span><span class="p">,</span> <span class="s">&#39;4&#39;</span><span class="p">,</span> <span class="s">&#39;4&#39;</span><span class="p">]]</span>
+</pre></div>
+
+
+<p>Partiamo da qui. Dividiamo la stringa con lo split delle stringhe python.</p>
+<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="n">stringa</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&#39;+&#39;</span><span class="p">)</span>
+<span class="p">[</span><span class="s">&#39;1&#39;</span><span class="p">,</span> <span class="s">&#39;2*3&#39;</span><span class="p">]</span>
+</pre></div>
+
+
+<p>per ogni elemento della lista applico lo split per <code>'-'</code>, poi per <code>'*'</code> e per <code>'/'</code>. Abbiamo di fatto implementato la precedenza degli operatori. Dobbiamo però segnarci quale operatore ha dato origine allo split. Quindi la funzione risultante è:</p>
+<div class="highlight"><pre><span class="k">def</span> <span class="nf">splitta</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
+    <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="o">==</span> <span class="nb">list</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)):</span>
+            <span class="n">s</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">splitta</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="n">k</span><span class="p">])</span>
+        <span class="k">return</span> <span class="n">s</span>
+    <span class="k">elif</span> <span class="nb">type</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="o">==</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">op</span> <span class="ow">in</span> <span class="s">&#39;+-/*&#39;</span><span class="p">:</span>
+            <span class="n">t</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">op</span><span class="p">)</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">1</span><span class="p">:</span>
+                <span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">op</span>
+                <span class="k">return</span> <span class="n">splitta</span> <span class="p">(</span><span class="n">t</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">s</span>
+</pre></div>
+
+
+<p>La funzione fa uso della ricorsione per splittare gli elementi successivi, e pone l'operatore in testa alla lista che si ottiene dallo split.</p>
+<p>Per ottenere un valore numerico da questa lista si deve quindi partire dalle liste più interne. </p>
+<p>Vediamo ora come fare una funzione che ci dia un risultato.</p>
+<div class="highlight"><pre><span class="k">assert</span> <span class="n">parse</span><span class="p">([</span><span class="s">&#39;+&#39;</span><span class="p">,</span> <span class="s">&#39;1&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s">&#39;*&#39;</span><span class="p">,</span> <span class="s">&#39;2&#39;</span><span class="p">,</span> <span class="s">&#39;3&#39;</span><span class="p">]])</span> <span class="o">==</span> <span class="s">&#39;7.0&#39;</span>
+</pre></div>
+
+
+<p>commentiamo la funzione.</p>
+<div class="highlight"><pre><span class="k">def</span> <span class="nf">parse</span> <span class="p">(</span><span class="n">lista</span><span class="p">):</span>
+    <span class="n">case</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s">&#39;+&#39;</span><span class="p">:</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">+</span><span class="nb">float</span><span class="p">(</span><span class="n">y</span><span class="p">),</span>
+        <span class="s">&#39;-&#39;</span><span class="p">:</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">-</span><span class="nb">float</span><span class="p">(</span><span class="n">y</span><span class="p">),</span>
+        <span class="s">&#39;*&#39;</span><span class="p">:</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">*</span><span class="nb">float</span><span class="p">(</span><span class="n">y</span><span class="p">),</span>
+        <span class="s">&#39;/&#39;</span><span class="p">:</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="n">y</span><span class="p">),</span>
+        <span class="p">}</span>
+    <span class="c">#se non ho una lista restituisco il valore</span>
+    <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">lista</span><span class="p">)</span><span class="o">==</span><span class="nb">list</span><span class="p">:</span>
+        <span class="c">#controllo che non ci siano sottoliste</span>
+        <span class="n">term</span> <span class="o">=</span> <span class="bp">True</span>
+        <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">lista</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">str</span><span class="p">:</span>
+                <span class="n">term</span> <span class="o">=</span> <span class="bp">False</span>
+                <span class="k">break</span>
+        <span class="k">if</span> <span class="n">term</span><span class="p">:</span> <span class="c">#nessuna sottolista</span>
+            <span class="k">return</span> <span class="nb">str</span> <span class="p">(</span> <span class="nb">reduce</span> <span class="p">(</span> <span class="n">case</span><span class="p">[</span><span class="n">lista</span><span class="p">[</span><span class="mi">0</span><span class="p">]],</span> <span class="n">lista</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="p">)</span> <span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span> <span class="c">#ci sono sottoliste, ne sostituisco i valori e mi richiamo</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">lista</span><span class="p">)):</span>
+                <span class="n">lista</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">parse</span> <span class="p">(</span> <span class="n">lista</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">)</span>
+            <span class="k">return</span> <span class="n">parse</span> <span class="p">(</span> <span class="n">lista</span> <span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span> <span class="c">#l&#39;input non era una lista, lo restituisco dritto.</span>
+        <span class="k">return</span> <span class="n">lista</span>
+</pre></div>
+
+
+<p>Spieghiamo più nel dettaglio la riga </p>
+<div class="highlight"><pre><span class="k">return</span> <span class="nb">str</span> <span class="p">(</span> <span class="nb">reduce</span> <span class="p">(</span> <span class="n">case</span><span class="p">[</span><span class="n">lista</span><span class="p">[</span><span class="mi">0</span><span class="p">]],</span> <span class="n">lista</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="p">)</span> <span class="p">)</span>
+</pre></div>
+
+
+<p>Python non ha costrutto switch-case. Le tecniche di programmazione ad oggetti più estreme dicono di non usare più questo costrutto, ma di creare una factory di oggetti che implementano una interfaccia comune, che variano nel comportamento come cambierebbero i vari rami dello switch-case. Estremizzano questo discorso anche all'uso degli else.</p>
+<p>Qui più semplicemente uso il dizionario case, per avere una funzione per ogni operatore. Le stringhe vengono considerate convertite in float.</p>
+<p>Quindi:</p>
+<ul>
+<li><code>lista[0]</code> è l'operatore</li>
+<li><code>case[lista[0]]</code> è una funzione che il reduce chiamerà</li>
+<li><code>lista[1:]</code> è l'insieme dei valori su cui operare</li>
+<li><code>reduce</code> chiama la funzione su tutta la lista, una coppia alla volta.</li>
+<li><code>str</code> mi serve per potere poi rimettere il valore nella stringa partenza, se la lista che sto processando veniva da un blocco fra parentesi tonde.</li>
+</ul>
+<p>Mettiamo ora insieme le due funzioni per elaborare espressioni con le parentesi.</p>
+<div class="highlight"><pre><span class="k">def</span> <span class="nf">esegui</span><span class="p">(</span><span class="n">espressione</span><span class="p">):</span>
+    <span class="c">#mentre ho ancora parentesi nella stringa  espressione </span>
+    <span class="k">while</span> <span class="n">espressione</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s">&#39;)&#39;</span><span class="p">)</span><span class="o">&gt;-</span><span class="mi">1</span><span class="p">:</span>
+        <span class="n">_end</span> <span class="o">=</span> <span class="n">espressione</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s">&#39;)&#39;</span><span class="p">)</span>
+        <span class="n">_begin</span> <span class="o">=</span> <span class="n">espressione</span><span class="o">.</span><span class="n">rfind</span><span class="p">(</span><span class="s">&#39;(&#39;</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">_end</span><span class="p">)</span>
+        <span class="c">#sostituisco il blocco di parentesi col suo valore</span>
+        <span class="n">espressione</span> <span class="o">=</span> <span class="n">espressione</span><span class="p">[:</span><span class="n">_begin</span><span class="p">]</span> <span class="o">+</span> <span class="n">esegui</span> <span class="p">(</span><span class="n">espressione</span><span class="p">[</span><span class="n">_begin</span><span class="o">+</span><span class="mi">1</span><span class="p">:</span><span class="n">_end</span><span class="p">])</span> <span class="o">+</span> <span class="n">espressione</span><span class="p">[</span><span class="n">_end</span><span class="o">+</span><span class="mi">1</span><span class="p">:]</span>
+    <span class="c">#qui non avrò parentesi</span>
+    <span class="n">ops</span> <span class="o">=</span> <span class="n">splitta</span><span class="p">(</span><span class="n">espressione</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">parse</span><span class="p">(</span><span class="n">ops</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Ammetto che bastava un <code>eval</code> per tutto questo, ma come dicevo prima, questo esercizio aiuta a pensare a come si possono parsare espressioni, senza usare librerie di parsing python che richiedono l'uso pesante di regex, perché ricordiamoci:</p>
+<blockquote>
+<p>"Quando hai un problema ed usi una regex per risolverlo... ti troverai con 2 problemi"</p>
+</blockquote>
+<p>E se volessimo avere dei numeri negativi? es: <code>-1*3</code></p>
+    </div><!-- /.entry-content -->
+    <div class="comments">
+      <h2>Commenti !</h2>
+      <div id="disqus_thread"></div>
+      <script type="text/javascript">
+        var disqus_shortname = 'bloggambuzzi';
+        var disqus_identifier = 'parser-di-espressioni-aritmetiche.html';
+        var disqus_url = 'http://blog.gambuzzi.it/parser-di-espressioni-aritmetiche.html';
+        (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//bloggambuzzi.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+      </script>
+      <noscript>Please enable JavaScript to view the comments.</noscript>
+    </div>
+
+  </article>
+</section>
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>blogroll</h2>
+                        <ul>
+                            <li><a href="http://python.org/">Python.org</a></li>
+                            <li><a href="http://martinfowler.com/">Martin Fowler</a></li>
+                            <li><a href="http://www.joelonsoftware.com/">Joel On Software</a></li>
+                            <li><a href="http://alanstorm.com/">Alan Storm</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+
+                            <li><a href="https://twitter.com/gbinside">Twitter</a></li>
+                            <li><a href="https://github.com/gbinside">GitHub</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                &nbsp;
+                </address><!-- /#about -->
+
+                <p>&nbsp;</p>
+        </footer><!-- /#contentinfo -->
+
+<script type="text/javascript">
+    var disqus_config = function () {
+      this.language = "it";
+    };
+    var disqus_shortname = 'bloggambuzzi';
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
+</body>
+</html>

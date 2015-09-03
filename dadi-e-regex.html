@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+        <meta charset="utf-8" />
+        <meta name=viewport content="width=device-width, initial-scale=1">
+        <title>Dadi e regex</title>
+        <link rel="stylesheet" href="http://blog.gambuzzi.it/theme/css/main.css" />
+
+        <!--[if IE]>
+            <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script src="http://blog.gambuzzi.it/theme/js/fuzzyset.js"></script>
+		<meta name="google-site-verification" content="62DfkLCugSzm-vW0NRbnM2aCMcGu7uqfsXjED71GNbI" />
+    <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-54060223-1']);
+    _gaq.push(['_trackPageview']);
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+    </script>
+<script type="text/javascript">
+  var _gauges = _gauges || [];
+  (function() {
+    var t   = document.createElement('script');
+    t.type  = 'text/javascript';
+    t.async = true;
+    t.id    = 'gauges-tracker';
+    t.setAttribute('data-site-id', '550ab326de2e26670a017635');
+    t.setAttribute('data-track-path', 'https://track.gaug.es/track.gif');
+    t.src = 'https://track.gaug.es/track.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(t, s);
+  })();
+</script>
+</head>
+
+<body id="index" class="home lang- 1.0.0">
+        <header id="banner" class="body">
+                <h1><a href="http://blog.gambuzzi.it/">Frammenti di codice  <strong>e amenità varie</strong></a></h1>
+
+                <div class="langchange"><ul>
+                        <li><a href="http://blog.gambuzzi.it/en"><img src="http://blog.gambuzzi.it/theme/images/en.png" alt="en"/></a></li>
+                    <!-- separator -->
+                    </ul>
+                </div>
+
+                <form id="headsearch" action='/search.html' method="GET">cerca: <input type="text" name="q" id="q0" /></form>
+
+                <nav><ul>
+                    <li><a href="http://blog.gambuzzi.it/category/anoto-digital-paper.html">Anoto Digital Paper</a></li>
+                    <li><a href="http://blog.gambuzzi.it/category/javascript.html">Javascript</a></li>
+                    <li><a href="http://blog.gambuzzi.it/category/magento.html">Magento</a></li>
+                    <li><a href="http://blog.gambuzzi.it/category/mix.html">Mix</a></li>
+                    <li><a href="http://blog.gambuzzi.it/category/php.html">Php</a></li>
+                    <li class="active"><a href="http://blog.gambuzzi.it/category/python.html">Python</a></li>
+                    <li><a href="http://blog.gambuzzi.it/category/windows.html">Windows</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="http://blog.gambuzzi.it/dadi-e-regex.html" rel="bookmark"
+           title="Permalink a Dadi e regex">Dadi e regex</a></h1>
+<a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="gbinside">Tweet</a><script type="text/javascript" src="//platform.twitter.com/widgets.js"></script>
+    </header>
+
+    <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2014-09-15T00:00:00">
+                Pubblicato: 15 09 2014
+        </abbr>
+
+        <address class="vcard author">
+                Da                         <a class="url fn" href="http://blog.gambuzzi.it/author/roberto-gambuzzi.html">Roberto Gambuzzi</a>
+        </address>
+<p>In <a href="http://blog.gambuzzi.it/category/python.html">Python</a>. </p>
+<p>tags: <a href="http://blog.gambuzzi.it/tag/python.html">python</a> </p>
+</footer><!-- /.post-info -->      <p>Da giocatore di ruolo ci si trova spesso a dovere tirare dadi. Nonostante non mi siano mai piaciuti i lanciatori di dati software, ho voluto analizzare il problema di parsare una espressione che rappresenta i dadi da tirare.</p>
+<p>Alcuni esempi:</p>
+<ul>
+<li>1d6 - il comune dado a 6 facce</li>
+<li>2d6 - tira 2 volte il dado da 6</li>
+<li>2d6-1 - come prima ma poi sottrai 1</li>
+<li>1d100 - un dado a 100 facce.</li>
+<li>1d20+2 - un dado da 20 più 2</li>
+<li>1d6+1-1d4</li>
+</ul>
+<p>Quindi dobbiamo match-are ogni singolo blocco ed elaborarlo.</p>
+<p>Partiamo da una semplice regex per prendere le espressioni con la "d" in mezzo.</p>
+<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s">r&#39;(\d+)d(\d+)&#39;</span><span class="p">,</span> <span class="s">&quot;1d6+1-1d4&quot;</span><span class="p">)</span>
+<span class="p">[(</span><span class="s">&#39;1&#39;</span><span class="p">,</span> <span class="s">&#39;6&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s">&#39;1&#39;</span><span class="p">,</span> <span class="s">&#39;4&#39;</span><span class="p">)]</span>
+</pre></div>
+
+
+<p>ok, pero' ci serve anche il segno</p>
+<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s">r&#39;([+-])(\d+)d(\d+)&#39;</span><span class="p">,</span> <span class="s">&quot;1d6+1-1d4&quot;</span><span class="p">)</span>
+<span class="p">[(</span><span class="s">&#39;-&#39;</span><span class="p">,</span> <span class="s">&#39;1&#39;</span><span class="p">,</span> <span class="s">&#39;4&#39;</span><span class="p">)]</span>
+</pre></div>
+
+
+<p>ma è opzionale, altrimenti perdiamo il primo dado.</p>
+<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s">r&#39;([+-])?(\d+)d(\d+)&#39;</span><span class="p">,</span> <span class="s">&quot;1d6+1-1d4&quot;</span><span class="p">)</span>
+<span class="p">[(</span><span class="s">&#39;&#39;</span><span class="p">,</span> <span class="s">&#39;1&#39;</span><span class="p">,</span> <span class="s">&#39;6&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s">&#39;-&#39;</span><span class="p">,</span> <span class="s">&#39;1&#39;</span><span class="p">,</span> <span class="s">&#39;4&#39;</span><span class="p">)]</span>
+</pre></div>
+
+
+<p>prendiamo anche le parti solo intere senza la "d(\d+)"</p>
+<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s">r&#39;([+-])?(\d+)(?:d(\d+))?&#39;</span><span class="p">,</span> <span class="s">&quot;1d6+1-1d4&quot;</span><span class="p">)</span>
+<span class="p">[(</span><span class="s">&#39;&#39;</span><span class="p">,</span> <span class="s">&#39;1&#39;</span><span class="p">,</span> <span class="s">&#39;6&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s">&#39;+&#39;</span><span class="p">,</span> <span class="s">&#39;1&#39;</span><span class="p">,</span> <span class="s">&#39;&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s">&#39;-&#39;</span><span class="p">,</span> <span class="s">&#39;1&#39;</span><span class="p">,</span> <span class="s">&#39;4&#39;</span><span class="p">)]</span>
+</pre></div>
+
+
+<p>Aggiungiamo qualche <code>"\s*"</code> per prendere anche stringhe con gli spazi dentro.</p>
+<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s">r&#39;([+-])?\s*(\d+)\s*(?:d\s*(\d+))?&#39;</span><span class="p">,</span> <span class="s">&quot;1 d6 + 1-1d4&quot;</span><span class="p">)</span>
+<span class="p">[(</span><span class="s">&#39;&#39;</span><span class="p">,</span> <span class="s">&#39;1&#39;</span><span class="p">,</span> <span class="s">&#39;6&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s">&#39;+&#39;</span><span class="p">,</span> <span class="s">&#39;1&#39;</span><span class="p">,</span> <span class="s">&#39;&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s">&#39;-&#39;</span><span class="p">,</span> <span class="s">&#39;1&#39;</span><span class="p">,</span> <span class="s">&#39;4&#39;</span><span class="p">)]</span>
+</pre></div>
+
+
+<p>Da qui possiamo scrivere una funzione che prenda la lista di tuple e ci calcoli un valore random del risultato.</p>
+<div class="highlight"><pre><span class="c"># -*- coding: cp1252 -*-</span>
+<span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">randint</span>
+
+<span class="k">def</span> <span class="nf">tira_dadi</span><span class="p">(</span><span class="n">lista</span><span class="p">):</span>
+    <span class="n">ret</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">segno</span><span class="p">,</span> <span class="n">molt</span><span class="p">,</span> <span class="n">dado</span> <span class="ow">in</span> <span class="n">lista</span><span class="p">:</span>
+        <span class="n">dado</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">dado</span><span class="p">)</span> <span class="k">if</span> <span class="n">dado</span> <span class="k">else</span> <span class="mi">1</span> <span class="c">#se non c&#39;è dado è un dado da 1</span>
+        <span class="n">segno</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">segno</span><span class="o">+</span><span class="s">&#39;1&#39;</span><span class="p">)</span> <span class="k">if</span> <span class="n">segno</span> <span class="k">else</span> <span class="mi">1</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">molt</span><span class="p">)):</span>
+            <span class="n">ret</span> <span class="o">+=</span> <span class="n">segno</span> <span class="o">*</span> <span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">dado</span><span class="p">)</span> <span class="c">#randint dà anche gli estremi come possibili risultati</span>
+    <span class="k">return</span> <span class="n">ret</span>
+
+<span class="k">print</span> <span class="n">tira_dadi</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s">r&#39;([+-])?\s*(\d+)\s*(?:d\s*(\d+))?&#39;</span><span class="p">,</span> <span class="s">&quot;1 d6 + 1-1d4&quot;</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">I</span><span class="p">))</span>
+</pre></div>
+
+
+<p>Adesso possiamo anche sbizzarrirci a fare grafici di curva gaussiane lanciando miriadi di dadi ^_^</p>
+    </div><!-- /.entry-content -->
+    <div class="comments">
+      <h2>Commenti !</h2>
+      <div id="disqus_thread"></div>
+      <script type="text/javascript">
+        var disqus_shortname = 'bloggambuzzi';
+        var disqus_identifier = 'dadi-e-regex.html';
+        var disqus_url = 'http://blog.gambuzzi.it/dadi-e-regex.html';
+        (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//bloggambuzzi.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+      </script>
+      <noscript>Please enable JavaScript to view the comments.</noscript>
+    </div>
+
+  </article>
+</section>
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>blogroll</h2>
+                        <ul>
+                            <li><a href="http://python.org/">Python.org</a></li>
+                            <li><a href="http://martinfowler.com/">Martin Fowler</a></li>
+                            <li><a href="http://www.joelonsoftware.com/">Joel On Software</a></li>
+                            <li><a href="http://alanstorm.com/">Alan Storm</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+
+                            <li><a href="https://twitter.com/gbinside">Twitter</a></li>
+                            <li><a href="https://github.com/gbinside">GitHub</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                &nbsp;
+                </address><!-- /#about -->
+
+                <p>&nbsp;</p>
+        </footer><!-- /#contentinfo -->
+
+<script type="text/javascript">
+    var disqus_config = function () {
+      this.language = "it";
+    };
+    var disqus_shortname = 'bloggambuzzi';
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
+</body>
+</html>

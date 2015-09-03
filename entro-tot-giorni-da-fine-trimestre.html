@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+        <meta charset="utf-8" />
+        <meta name=viewport content="width=device-width, initial-scale=1">
+        <title>Entro tot giorni da fine trimestre</title>
+        <link rel="stylesheet" href="http://blog.gambuzzi.it/theme/css/main.css" />
+
+        <!--[if IE]>
+            <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script src="http://blog.gambuzzi.it/theme/js/fuzzyset.js"></script>
+		<meta name="google-site-verification" content="62DfkLCugSzm-vW0NRbnM2aCMcGu7uqfsXjED71GNbI" />
+    <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-54060223-1']);
+    _gaq.push(['_trackPageview']);
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+    </script>
+<script type="text/javascript">
+  var _gauges = _gauges || [];
+  (function() {
+    var t   = document.createElement('script');
+    t.type  = 'text/javascript';
+    t.async = true;
+    t.id    = 'gauges-tracker';
+    t.setAttribute('data-site-id', '550ab326de2e26670a017635');
+    t.setAttribute('data-track-path', 'https://track.gaug.es/track.gif');
+    t.src = 'https://track.gaug.es/track.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(t, s);
+  })();
+</script>
+</head>
+
+<body id="index" class="home lang- 1.0.0">
+        <header id="banner" class="body">
+                <h1><a href="http://blog.gambuzzi.it/">Frammenti di codice  <strong>e amenità varie</strong></a></h1>
+
+                <div class="langchange"><ul>
+                        <li><a href="http://blog.gambuzzi.it/en"><img src="http://blog.gambuzzi.it/theme/images/en.png" alt="en"/></a></li>
+                    <!-- separator -->
+                    </ul>
+                </div>
+
+                <form id="headsearch" action='/search.html' method="GET">cerca: <input type="text" name="q" id="q0" /></form>
+
+                <nav><ul>
+                    <li><a href="http://blog.gambuzzi.it/category/anoto-digital-paper.html">Anoto Digital Paper</a></li>
+                    <li><a href="http://blog.gambuzzi.it/category/javascript.html">Javascript</a></li>
+                    <li><a href="http://blog.gambuzzi.it/category/magento.html">Magento</a></li>
+                    <li><a href="http://blog.gambuzzi.it/category/mix.html">Mix</a></li>
+                    <li class="active"><a href="http://blog.gambuzzi.it/category/php.html">Php</a></li>
+                    <li><a href="http://blog.gambuzzi.it/category/python.html">Python</a></li>
+                    <li><a href="http://blog.gambuzzi.it/category/windows.html">Windows</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="http://blog.gambuzzi.it/entro-tot-giorni-da-fine-trimestre.html" rel="bookmark"
+           title="Permalink a Entro tot giorni da fine trimestre">Entro tot giorni da fine trimestre</a></h1>
+<a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="gbinside">Tweet</a><script type="text/javascript" src="//platform.twitter.com/widgets.js"></script>
+    </header>
+
+    <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2014-09-01T05:47:17">
+                Pubblicato: 01 09 2014
+        </abbr>
+
+        <address class="vcard author">
+                Da                         <a class="url fn" href="http://blog.gambuzzi.it/author/roberto-gambuzzi.html">Roberto Gambuzzi</a>
+        </address>
+<p>In <a href="http://blog.gambuzzi.it/category/php.html">Php</a>. </p>
+<p>tags: <a href="http://blog.gambuzzi.it/tag/php.html">php</a> <a href="http://blog.gambuzzi.it/tag/datetime.html">datetime</a> </p>
+</footer><!-- /.post-info -->      <div class="highlight"><pre><span class="x">#!/usr/bin/env php</span>
+<span class="cp">&lt;?php</span>
+
+<span class="nb">date_default_timezone_set</span><span class="p">(</span><span class="s1">&#39;UTC&#39;</span><span class="p">);</span>
+
+<span class="nv">$today</span> <span class="o">=</span> <span class="nb">getdate</span><span class="p">();</span> 
+<span class="nb">print_r</span><span class="p">(</span><span class="nv">$today</span><span class="p">);</span>
+<span class="k">echo</span> <span class="s1">&#39;&lt;br/&gt;&#39;</span><span class="p">;</span>
+<span class="nv">$y</span> <span class="o">=</span> <span class="nv">$today</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">];</span>
+<span class="nv">$soglia</span> <span class="o">=</span> <span class="mi">60</span><span class="p">;</span>
+<span class="nv">$ok</span><span class="o">=</span><span class="k">false</span><span class="p">;</span>
+<span class="k">for</span> <span class="p">(</span><span class="nv">$i</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span> <span class="nv">$i</span><span class="o">&lt;</span><span class="mi">13</span><span class="p">;</span> <span class="nv">$i</span><span class="o">+=</span><span class="mi">3</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">#$diff = (strtotime(&#39;now&#39;)-strtotime(sprintf(&#39;%04i-%02i-01&#39;, $y, $i)))/3600/24;</span>
+ <span class="nv">$diff</span> <span class="o">=</span> <span class="p">(</span><span class="nb">strtotime</span><span class="p">(</span><span class="s1">&#39;now&#39;</span><span class="p">)</span><span class="o">-</span><span class="nb">strtotime</span><span class="p">(</span><span class="nv">$y</span><span class="o">.</span><span class="s2">&quot;-&quot;</span><span class="o">.</span><span class="nv">$i</span><span class="o">.</span><span class="s2">&quot;-01&quot;</span><span class="p">))</span><span class="o">/</span><span class="mi">3600</span><span class="o">/</span><span class="mi">24</span><span class="p">;</span>
+ <span class="k">echo</span> <span class="nv">$diff</span><span class="o">.</span><span class="s2">&quot;&lt;br&gt;&quot;</span><span class="p">;</span>
+ <span class="k">if</span> <span class="p">(</span><span class="nv">$diff</span><span class="o">&gt;</span><span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="nv">$diff</span><span class="o">&lt;</span><span class="nv">$soglia</span><span class="p">)</span> <span class="p">{</span>
+   <span class="nv">$ok</span> <span class="o">=</span> <span class="k">true</span><span class="p">;</span>
+ <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nb">var_dump</span><span class="p">(</span><span class="nv">$ok</span><span class="p">);</span>
+</pre></div>
+    </div><!-- /.entry-content -->
+    <div class="comments">
+      <h2>Commenti !</h2>
+      <div id="disqus_thread"></div>
+      <script type="text/javascript">
+        var disqus_shortname = 'bloggambuzzi';
+        var disqus_identifier = 'entro-tot-giorni-da-fine-trimestre.html';
+        var disqus_url = 'http://blog.gambuzzi.it/entro-tot-giorni-da-fine-trimestre.html';
+        (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//bloggambuzzi.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+      </script>
+      <noscript>Please enable JavaScript to view the comments.</noscript>
+    </div>
+
+  </article>
+</section>
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>blogroll</h2>
+                        <ul>
+                            <li><a href="http://python.org/">Python.org</a></li>
+                            <li><a href="http://martinfowler.com/">Martin Fowler</a></li>
+                            <li><a href="http://www.joelonsoftware.com/">Joel On Software</a></li>
+                            <li><a href="http://alanstorm.com/">Alan Storm</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+
+                            <li><a href="https://twitter.com/gbinside">Twitter</a></li>
+                            <li><a href="https://github.com/gbinside">GitHub</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                &nbsp;
+                </address><!-- /#about -->
+
+                <p>&nbsp;</p>
+        </footer><!-- /#contentinfo -->
+
+<script type="text/javascript">
+    var disqus_config = function () {
+      this.language = "it";
+    };
+    var disqus_shortname = 'bloggambuzzi';
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
+</body>
+</html>

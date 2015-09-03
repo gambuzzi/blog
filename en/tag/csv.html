@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8" />
+        <meta name=viewport content="width=device-width, initial-scale=1">
+        <title>Code's Fragment - csv</title>
+        <link rel="stylesheet" href="http://blog.gambuzzi.it/en/theme/css/main.css" />
+
+        <!--[if IE]>
+            <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script src="http://blog.gambuzzi.it/en/theme/js/fuzzyset.js"></script>
+		<meta name="google-site-verification" content="62DfkLCugSzm-vW0NRbnM2aCMcGu7uqfsXjED71GNbI" />
+    <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-54060223-1']);
+    _gaq.push(['_trackPageview']);
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+    </script>
+<script type="text/javascript">
+  var _gauges = _gauges || [];
+  (function() {
+    var t   = document.createElement('script');
+    t.type  = 'text/javascript';
+    t.async = true;
+    t.id    = 'gauges-tracker';
+    t.setAttribute('data-site-id', '550ab326de2e26670a017635');
+    t.setAttribute('data-track-path', 'https://track.gaug.es/track.gif');
+    t.src = 'https://track.gaug.es/track.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(t, s);
+  })();
+</script>
+</head>
+
+<body id="index" class="home lang- 1.0.0">
+        <header id="banner" class="body">
+                <h1><a href="http://blog.gambuzzi.it/en/">Code's Fragment  <strong>and various amenities</strong></a></h1>
+
+                <div class="langchange"><ul>
+                        <li><a href="http://blog.gambuzzi.it"><img src="http://blog.gambuzzi.it/en/theme/images/it.png" alt="it"/></a></li>
+                    <!-- separator -->
+                    </ul>
+                </div>
+
+                <form id="headsearch" action='/search.html' method="GET">search: <input type="text" name="q" id="q0" /></form>
+
+                <nav><ul>
+                    <li><a href="http://blog.gambuzzi.it/en/category/mix.html">Mix</a></li>
+                    <li><a href="http://blog.gambuzzi.it/en/category/php.html">Php</a></li>
+                    <li><a href="http://blog.gambuzzi.it/en/category/python.html">Python</a></li>
+                    <li><a href="http://blog.gambuzzi.it/en/category/windows.html">Windows</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+
+            <aside id="featured" class="body">
+                <article>
+                    <h1 class="entry-title"><a href="http://blog.gambuzzi.it/en/console-utility-for-csv-file.html">console utility for csv file</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2014-09-01T05:47:17">
+                Pubblicato: 01 09 2014
+        </abbr>
+
+        <address class="vcard author">
+                Da                         <a class="url fn" href="http://blog.gambuzzi.it/en/author/roberto-gambuzzi.html">Roberto Gambuzzi</a>
+        </address>
+<p>In <a href="http://blog.gambuzzi.it/en/category/php.html">Php</a>. </p>
+<p>tags: <a href="http://blog.gambuzzi.it/en/tag/php.html">php</a> <a href="http://blog.gambuzzi.it/en/tag/csv.html">csv</a> </p>Traduzioni:
+        <a href="http://blog.gambuzzi.it/en/../console-utility-for-csv-file.html">it</a>
+
+</footer><!-- /.post-info --><div class="highlight"><pre><span class="x">#!/usr/bin/env php</span>
+<span class="cp">&lt;?php</span>
+
+<span class="nv">$opt</span> <span class="o">=</span> <span class="nb">getopt</span><span class="p">(</span><span class="s1">&#39;f:l:h&#39;</span><span class="p">);</span>
+<span class="c1">#echo &#39;$opt: &#39;;print_r($opt);</span>
+<span class="nv">$row</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+<span class="k">if</span> <span class="p">((</span><span class="nv">$handle</span> <span class="o">=</span> <span class="nb">fopen</span><span class="p">(</span><span class="nv">$opt</span><span class="p">[</span><span class="s1">&#39;f&#39;</span><span class="p">],</span> <span class="s2">&quot;r&quot;</span><span class="p">))</span> <span class="o">!==</span> <span class="k">FALSE</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">while</span> <span class="p">((</span><span class="nv">$data</span> <span class="o">=</span> <span class="nb">fgetcsv</span><span class="p">(</span><span class="nv">$handle</span><span class="p">))</span> <span class="o">!==</span> <span class="k">FALSE</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nv">$row</span><span class="o">==-</span><span class="mi">1</span><span class="p">)</span> <span class="nv">$header</span><span class="o">=</span><span class="nv">$data</span><span class="p">;</span>
+        <span class="nv">$row</span><span class="o">++</span><span class="p">;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nv">$opt</span><span class="p">[</span><span class="s1">&#39;l&#39;</span><span class="p">]</span><span class="o">==</span><span class="nv">$row</span><span class="p">)</span> <span class="p">{</span>
+                <span class="nv">$num</span> <span class="o">=</span> <span class="nb">count</span><span class="p">(</span><span class="nv">$data</span><span class="p">);</span>
+                <span class="k">echo</span> <span class="s2">&quot;&lt;p&gt; </span><span class="si">$num</span><span class="s2"> fields in line </span><span class="si">$row</span><span class="s2">: &lt;br /&gt;&lt;/p&gt;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
+                <span class="k">if</span> <span class="p">(</span><span class="nb">array_key_exists</span><span class="p">(</span><span class="s1">&#39;h&#39;</span><span class="p">,</span><span class="nv">$opt</span><span class="p">))</span> <span class="p">{</span>
+                        <span class="nb">print_r</span><span class="p">(</span><span class="nb">array_combine</span><span class="p">(</span><span class="nv">$header</span><span class="p">,</span><span class="nv">$data</span><span class="p">));</span>
+                <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+                        <span class="nb">print_r</span><span class="p">(</span><span class="nv">$data</span><span class="p">);</span>
+                <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="nb">fclose</span><span class="p">(</span><span class="nv">$handle</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div><p>Ci sono <a href="http://blog.gambuzzi.it/en/console-utility-for-csv-file.html#disqus_thread">commenti</a>.</p>                </article>
+<p class="paginator">
+    Page 1 / 1
+</p>
+            </aside><!-- /#featured -->
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>blogroll</h2>
+                        <ul>
+                            <li><a href="http://python.org/">Python.org</a></li>
+                            <li><a href="http://martinfowler.com/">Martin Fowler</a></li>
+                            <li><a href="http://www.joelonsoftware.com/">Joel On Software</a></li>
+                            <li><a href="http://alanstorm.com/">Alan Storm</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+
+                            <li><a href="https://twitter.com/gbinside">Twitter</a></li>
+                            <li><a href="https://github.com/gbinside">GitHub</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                &nbsp;
+                </address><!-- /#about -->
+
+                <p>&nbsp;</p>
+        </footer><!-- /#contentinfo -->
+
+<script type="text/javascript">
+    var disqus_config = function () {
+      this.language = "it";
+    };
+    var disqus_shortname = 'bloggambuzzi';
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
+</body>
+</html>

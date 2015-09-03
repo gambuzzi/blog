@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8" />
+        <meta name=viewport content="width=device-width, initial-scale=1">
+        <title>Creatore di PDF con carte</title>
+        <link rel="stylesheet" href="http://blog.gambuzzi.it/en/theme/css/main.css" />
+
+        <!--[if IE]>
+            <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script src="http://blog.gambuzzi.it/en/theme/js/fuzzyset.js"></script>
+		<meta name="google-site-verification" content="62DfkLCugSzm-vW0NRbnM2aCMcGu7uqfsXjED71GNbI" />
+    <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-54060223-1']);
+    _gaq.push(['_trackPageview']);
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+    </script>
+<script type="text/javascript">
+  var _gauges = _gauges || [];
+  (function() {
+    var t   = document.createElement('script');
+    t.type  = 'text/javascript';
+    t.async = true;
+    t.id    = 'gauges-tracker';
+    t.setAttribute('data-site-id', '550ab326de2e26670a017635');
+    t.setAttribute('data-track-path', 'https://track.gaug.es/track.gif');
+    t.src = 'https://track.gaug.es/track.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(t, s);
+  })();
+</script>
+</head>
+
+<body id="index" class="home lang- 1.0.0">
+        <header id="banner" class="body">
+                <h1><a href="http://blog.gambuzzi.it/en/">Code's Fragment  <strong>and various amenities</strong></a></h1>
+
+                <div class="langchange"><ul>
+                        <li><a href="http://blog.gambuzzi.it"><img src="http://blog.gambuzzi.it/en/theme/images/it.png" alt="it"/></a></li>
+                    <!-- separator -->
+                    </ul>
+                </div>
+
+                <form id="headsearch" action='/search.html' method="GET">search: <input type="text" name="q" id="q0" /></form>
+
+                <nav><ul>
+                    <li><a href="http://blog.gambuzzi.it/en/category/mix.html">Mix</a></li>
+                    <li><a href="http://blog.gambuzzi.it/en/category/php.html">Php</a></li>
+                    <li class="active"><a href="http://blog.gambuzzi.it/en/category/python.html">Python</a></li>
+                    <li><a href="http://blog.gambuzzi.it/en/category/windows.html">Windows</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="http://blog.gambuzzi.it/en/creatore-di-pdf-con-carte.html" rel="bookmark"
+           title="Permalink a Creatore di PDF con carte">Creatore di PDF con carte</a></h1>
+<a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="gbinside">Tweet</a><script type="text/javascript" src="//platform.twitter.com/widgets.js"></script>
+    </header>
+
+    <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2011-10-17T06:09:00">
+                Pubblicato: 17 10 2011
+        </abbr>
+
+        <address class="vcard author">
+                Da                         <a class="url fn" href="http://blog.gambuzzi.it/en/author/roberto-gambuzzi.html">Roberto Gambuzzi</a>
+        </address>
+<p>In <a href="http://blog.gambuzzi.it/en/category/python.html">Python</a>. </p>
+<p>tags: <a href="http://blog.gambuzzi.it/en/tag/python.html">python</a> </p>
+</footer><!-- /.post-info -->      <p>Questo progetto nasce per stamparsi le carte di magic per poi ritagliarle.
+Trovandosi a giocare fra amici non c'è la necessità di possedere realmente le carte, basta per convenzione avere i mazzi con queste 'copie ed uso personale'.
+Altro scopo dei mazzi cosi fatti è non rovinare la propria collezione di carte.</p>
+<p><img alt="screenshot" src="http://blog.gambuzzi.it/en/images/mazzomaker.png" /></p>
+<p>Il programma è molto semplice</p>
+<p>Richiede le librerie:</p>
+<ul>
+<li>CherryPy</li>
+<li>ReportLab</li>
+<li>PIL (Python Image Library)</li>
+</ul>
+<p>Il file config.py contiene il seguente codice</p>
+<div class="highlight"><pre><span class="n">origine_carte</span><span class="o">=</span><span class="err">&#39;</span><span class="n">carte</span><span class="o">/*</span><span class="p">.</span><span class="n">jpg</span><span class="err">&#39;</span> <span class="err">#</span> <span class="n">percorsi</span> <span class="n">separati</span> <span class="n">da</span> <span class="n">punto</span> <span class="n">e</span> <span class="n">virgola</span> <span class="sc">&#39;;&#39;</span>
+<span class="n">matrice</span> <span class="o">=</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">spaziatura</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">)</span>
+<span class="n">dimensione</span> <span class="o">=</span> <span class="p">(</span><span class="mf">5.9</span><span class="p">,</span><span class="mf">8.39</span><span class="p">)</span>
+<span class="n">rotazione</span> <span class="o">=</span> <span class="mf">0.0</span>
+<span class="n">carta</span> <span class="o">=</span> <span class="p">(</span><span class="mf">21.0</span><span class="p">,</span><span class="mf">29.7</span><span class="p">)</span>
+</pre></div>
+
+
+<p>in questo file viene specificato dove prendere le carte (1° riga), quante metterne per pagina, distanziate quanto l'una dall'altra, con quale dimensione, se ruotarle (vedremo poi che era stata prevista questa funzionalità ma non è stata mai implementata) e la dimensione del foglio.</p>
+<p>Tutte le dimensioni sono in Centimetri.</p>
+<p>Passiamo ora al programma vero e proprio</p>
+<div class="highlight"><pre><span class="nb">from</span> <span class="nx">reportlab.pdfgen.canvas</span> <span class="k">import</span> <span class="nx">Canvas</span>
+<span class="nb">from</span> <span class="nx">reportlab.lib.units</span> <span class="k">import</span> <span class="nx">cm</span>
+<span class="nb">from</span> <span class="nx">glob</span> <span class="k">import</span> <span class="nx">glob</span>
+<span class="nb">from</span> <span class="nx">PIL</span> <span class="k">import</span> <span class="nb">Image</span>
+<span class="vi">#from</span> <span class="nx">math</span> <span class="k">import</span> <span class="nb">sin</span><span class="p">,</span> <span class="nb">cos</span>
+<span class="k">import</span> <span class="nx">cherrypy</span>
+<span class="nb">from</span> <span class="nx">os.path</span> <span class="k">import</span> <span class="nx">abspath</span>
+<span class="k">import</span> <span class="nx">subprocess</span>
+<span class="vi">#from</span> <span class="nx">win32com.client</span> <span class="k">import</span> <span class="nx">Dispatch</span>
+<span class="nb">from</span> <span class="nx">sys</span> <span class="k">import</span> <span class="nx">argv</span>
+<span class="k">import</span> <span class="nb">time</span>
+<span class="nb">from</span> <span class="nx">random</span> <span class="k">import</span> <span class="nx">randint</span>
+
+<span class="nb">from</span> <span class="nx">config</span> <span class="k">import</span> <span class="o">*</span>
+
+<span class="nx">def</span> <span class="nx">crea</span><span class="p">(</span><span class="nx">fs</span><span class="p">):</span>
+    <span class="n">offset</span> <span class="o">=</span> <span class="err">[</span><span class="p">(</span><span class="nx">carta</span><span class="err">[</span><span class="nx">x</span><span class="cp">]</span>-spaziatura<span class="cp">[</span><span class="nx">x</span><span class="cp">]</span>*(matrice<span class="cp">[</span><span class="nx">x</span><span class="cp">]</span>-1)-matrice<span class="cp">[</span><span class="nx">x</span><span class="cp">]</span>*dimensione<span class="cp">[</span><span class="nx">x</span><span class="cp">]</span>)/2 for x in xrange(2)] #centratura
+    pdf = Canvas(&#39;mazzo.pdf&#39;, pagesize=<span class="cp">[</span><span class="nx">x</span><span class="o">*</span><span class="nx">cm</span> <span class="nb">for</span> <span class="n">x</span> <span class="k">in</span> <span class="nx">carta</span><span class="cp">]</span>)
+    x = 0
+    y = 0
+    for f in fs:
+        for i in xrange(int(fs<span class="cp">[</span><span class="nb">f</span><span class="cp">]</span>)):
+            pdf.drawImage(f, (offset<span class="cp">[</span><span class="mi">0</span><span class="cp">]</span>+x*(dimensione<span class="cp">[</span><span class="mi">0</span><span class="cp">]</span>+spaziatura<span class="cp">[</span><span class="mi">0</span><span class="cp">]</span>))*cm , \
+                (offset<span class="cp">[</span><span class="mi">1</span><span class="cp">]</span>+(matrice<span class="cp">[</span><span class="mi">1</span><span class="cp">]</span>-1-y)*(dimensione<span class="cp">[</span><span class="mi">1</span><span class="cp">]</span>+spaziatura<span class="cp">[</span><span class="mi">1</span><span class="cp">]</span>))*cm , dimensione<span class="cp">[</span><span class="mi">0</span><span class="cp">]</span>*cm , dimensione<span class="cp">[</span><span class="mi">1</span><span class="cp">]</span>*cm)
+            x += 1
+            x %= matrice<span class="cp">[</span><span class="mi">0</span><span class="cp">]</span>
+            if x==0:
+                y += 1
+                y %= matrice<span class="cp">[</span><span class="mi">1</span><span class="cp">]</span>
+            if x==0 and y==0:
+                pdf.showPage()
+    pdf.save()
+
+class MazzoMaker(object):
+    def __init__(self):
+#        IE = Dispatch(&quot;InternetExplorer.Application&quot;)
+#        IE.Visible = True
+#        IE.Navigate(&quot;http://localhost:8080/&quot;)
+#        subprocess.Popen(<span class="cp">[</span><span class="s1">&#39;CMD.EXE&#39;</span><span class="p">,</span><span class="s1">&#39;/c&#39;</span><span class="p">,</span><span class="s2">&quot;ping 127.0.0.1 -n 2 &amp; start http://localhost:8080/&quot;</span><span class="cp">]</span>)
+        pass
+
+    def redir(self):
+        yield &quot;Please Wait...&quot;
+        time.sleep(1)
+        raise cherrypy.HTTPRedirect(&#39;/&#39;)
+    redir.exposed = True
+
+    def index(self):    
+        submit = &#39;<span class="nt">&lt;p&gt;&lt;input</span> <span class="na">type=</span><span class="s">Submit</span> <span class="na">value=</span><span class="s">&quot;Crea PDF&quot;</span><span class="nt">&gt;&lt;/p&gt;</span>&#39;
+        ret =  <span class="cp">[</span><span class="s2">&quot;&lt;html&gt;&lt;head&gt;&lt;title&gt;Mazzo Maker&lt;/title&gt;&lt;/head&gt;&lt;body&gt;&lt;h1&gt;Mazzo Maker&lt;/h1&gt;&quot;</span><span class="cp">]</span>
+        ret.append(&#39;<span class="nt">&lt;form</span> <span class="na">method=</span><span class="s">post</span> <span class="na">action=</span><span class="s">&quot;creamazzo&quot;</span><span class="nt">&gt;</span>&#39;)
+        ret.append(submit)
+        for f in glob(&#39;temp/*.jpg&#39;):
+            ret.append(&#39;<span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">&quot;%s&quot;</span> <span class="na">width=</span><span class="s">200px</span><span class="nt">&gt;</span>Quantita<span class="nt">&lt;input</span> <span class="na">name=</span><span class="s">&quot;%s&quot;</span> <span class="na">type=</span><span class="s">Text</span> <span class="na">lenght=</span><span class="s">2</span> <span class="na">value=</span><span class="s">0</span><span class="nt">&gt;</span>&#39; \
+                        % ( f.replace(&#39;\\&#39;,&#39;/&#39;), f ) )
+        ret.append(submit)
+        ret.append(&#39;<span class="nt">&lt;/form&gt;&lt;/body&gt;&lt;/html&gt;</span>&#39;)
+        return &#39;\n&#39;.join(ret)
+    index.exposed = True
+
+    def creamazzo(self, *args, **key):
+        crea(key)
+        return cherrypy.lib.static.serve_file(abspath(&#39;mazzo.pdf&#39;),&quot;application/pdf&quot;, &quot;attachment&quot;)
+    creamazzo.exposed = True
+
+porta = randint(8080,10000)
+
+cfg = &quot;&quot;&quot;\
+<span class="cp">[</span><span class="bp">global</span><span class="cp">]</span>
+server.socket_port = %i
+server.thread_pool = 10
+tools.sessions.on = True
+tools.staticdir.root = &quot;%s&quot;
+
+<span class="cp">[</span><span class="p">/</span><span class="nx">temp</span><span class="cp">]</span>
+tools.staticdir.on = True
+tools.staticdir.dir = &quot;temp&quot;
+&quot;&quot;&quot; % (porta,argv<span class="cp">[</span><span class="mi">0</span><span class="cp">][</span><span class="p">:</span><span class="nx">argv</span><span class="err">[</span><span class="mi">0</span><span class="cp">]</span>.rfind(&#39;\\&#39;)].replace(&#39;\\&#39;,&#39;/&#39;))
+
+open(&#39;config.cfg&#39;,&#39;w&#39;).write(cfg)
+
+for gf in origine_carte.split(&#39;;&#39;):
+    for f in glob(gf):
+        fdest = &#39;temp\\&#39; + f<span class="cp">[</span><span class="nx">f.replace</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\\</span><span class="s1">&#39;</span><span class="p">,</span><span class="s1">&#39;/&#39;</span><span class="p">)</span><span class="bp">.</span><span class="nx">rfind</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">:</span><span class="cp">]</span>
+        fdest = fdest<span class="cp">[</span><span class="p">:</span><span class="nx">fdest.rfind</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)</span><span class="cp">]</span> + &#39;.jpg&#39;
+        Image.open(f).rotate(rotazione, expand=1).save(fdest, quality=100)
+
+subprocess.Popen(<span class="cp">[</span><span class="s1">&#39;CMD.EXE&#39;</span><span class="p">,</span><span class="s1">&#39;/c&#39;</span><span class="p">,</span><span class="s2">&quot;start http://localhost:%i/redir&quot;</span> <span class="o">%</span> <span class="nx">porta</span><span class="cp">]</span>)
+cherrypy.quickstart(MazzoMaker(),config=&#39;config.cfg&#39;)
+</pre></div>
+
+
+<p>La funzione <em>crea</em> prende una lista di carte (<em>fs</em>) e crea un file PDF sul disco.</p>
+<p>L'inizializzazione del programma è molto grezza si compone di:</p>
+<ul>
+<li>scelta di una porta a caso del localhost, nessun check, si spera nella fortuna.</li>
+<li>scrittura del file di configurazione del cherrypy</li>
+<li>creazione delle immagini temporanee per la pagina html generata dall'index (vedremo dopo)</li>
+<li>lancia il broswer sul localhost...</li>
+<li>...sperando che il cherrypy si avvii in tempo ^_^</li>
+</ul>
+<p>La classe del cherrypy si compone fondamentalmente di una pagina <em>index</em> e di un metodo per il FORM HTML che viene POSTato con le quantità delle carte. Per grandi quantità di carte si è rivelato un po scomodo, ma se uno sa già quali carte servono e mette solo quelle va benissimo.</p>
+<p>Un programma molto semplice, realizzato molto in fretta (una pausa pranzo) e che svolge la sua funzione egregiamente direi.</p>
+<p>Chiunque abbia idee o migliorie è libero di dirmele e prendere questo codice come spunto per qualsiasi sua idea.</p>
+<p><a href="http://blog.gambuzzi.it/en/extras/cartemagic.rar">allegato</a></p>
+    </div><!-- /.entry-content -->
+
+  </article>
+</section>
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>blogroll</h2>
+                        <ul>
+                            <li><a href="http://python.org/">Python.org</a></li>
+                            <li><a href="http://martinfowler.com/">Martin Fowler</a></li>
+                            <li><a href="http://www.joelonsoftware.com/">Joel On Software</a></li>
+                            <li><a href="http://alanstorm.com/">Alan Storm</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+
+                            <li><a href="https://twitter.com/gbinside">Twitter</a></li>
+                            <li><a href="https://github.com/gbinside">GitHub</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                &nbsp;
+                </address><!-- /#about -->
+
+                <p>&nbsp;</p>
+        </footer><!-- /#contentinfo -->
+
+<script type="text/javascript">
+    var disqus_config = function () {
+      this.language = "it";
+    };
+    var disqus_shortname = 'bloggambuzzi';
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
+</body>
+</html>

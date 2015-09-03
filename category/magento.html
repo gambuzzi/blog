@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+        <meta charset="utf-8" />
+        <meta name=viewport content="width=device-width, initial-scale=1">
+        <title>Frammenti di codice - Magento</title>
+        <link rel="stylesheet" href="http://blog.gambuzzi.it/theme/css/main.css" />
+
+        <!--[if IE]>
+            <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script src="http://blog.gambuzzi.it/theme/js/fuzzyset.js"></script>
+		<meta name="google-site-verification" content="62DfkLCugSzm-vW0NRbnM2aCMcGu7uqfsXjED71GNbI" />
+    <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-54060223-1']);
+    _gaq.push(['_trackPageview']);
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+    </script>
+<script type="text/javascript">
+  var _gauges = _gauges || [];
+  (function() {
+    var t   = document.createElement('script');
+    t.type  = 'text/javascript';
+    t.async = true;
+    t.id    = 'gauges-tracker';
+    t.setAttribute('data-site-id', '550ab326de2e26670a017635');
+    t.setAttribute('data-track-path', 'https://track.gaug.es/track.gif');
+    t.src = 'https://track.gaug.es/track.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(t, s);
+  })();
+</script>
+</head>
+
+<body id="index" class="home lang- 1.0.0">
+        <header id="banner" class="body">
+                <h1><a href="http://blog.gambuzzi.it/">Frammenti di codice  <strong>e amenità varie</strong></a></h1>
+
+                <div class="langchange"><ul>
+                        <li><a href="http://blog.gambuzzi.it/en"><img src="http://blog.gambuzzi.it/theme/images/en.png" alt="en"/></a></li>
+                    <!-- separator -->
+                    </ul>
+                </div>
+
+                <form id="headsearch" action='/search.html' method="GET">cerca: <input type="text" name="q" id="q0" /></form>
+
+                <nav><ul>
+                    <li><a href="http://blog.gambuzzi.it/category/anoto-digital-paper.html">Anoto Digital Paper</a></li>
+                    <li><a href="http://blog.gambuzzi.it/category/javascript.html">Javascript</a></li>
+                    <li class="active"><a href="http://blog.gambuzzi.it/category/magento.html">Magento</a></li>
+                    <li><a href="http://blog.gambuzzi.it/category/mix.html">Mix</a></li>
+                    <li><a href="http://blog.gambuzzi.it/category/php.html">Php</a></li>
+                    <li><a href="http://blog.gambuzzi.it/category/python.html">Python</a></li>
+                    <li><a href="http://blog.gambuzzi.it/category/windows.html">Windows</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+
+            <aside id="featured" class="body">
+                <article>
+                    <h1 class="entry-title"><a href="http://blog.gambuzzi.it/disabilitare-i-prodotti-non-in-una-categoria.html">Disabilitare i prodotti non in una categoria</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2014-09-01T20:04:20">
+                Pubblicato: 01 09 2014
+        </abbr>
+
+        <address class="vcard author">
+                Da                         <a class="url fn" href="http://blog.gambuzzi.it/author/roberto-gambuzzi.html">Roberto Gambuzzi</a>
+        </address>
+<p>In <a href="http://blog.gambuzzi.it/category/magento.html">Magento</a>. </p>
+<p>tags: <a href="http://blog.gambuzzi.it/tag/php.html">php</a> <a href="http://blog.gambuzzi.it/tag/magento.html">magento</a> </p>
+</footer><!-- /.post-info --><p>sql</p>
+<div class="highlight"><pre><span class="k">update</span> <span class="n">catalog_product_entity_int</span> <span class="k">set</span> <span class="n">value</span><span class="o">=</span><span class="mi">2</span> 
+    <span class="k">where</span> <span class="n">attribute_id</span><span class="o">=</span><span class="mi">96</span> 
+    <span class="k">and</span> <span class="n">entity_id</span> <span class="k">not</span> <span class="k">in</span> 
+        <span class="p">(</span><span class="k">select</span> <span class="k">distinct</span> <span class="n">product_id</span> <span class="k">from</span> <span class="n">catalog_category_product</span><span class="p">);</span>
+</pre></div>
+
+
+<p>in php</p>
+<div class="highlight"><pre><span class="cp">&lt;?php</span>   
+<span class="nv">$write</span> <span class="o">=</span> <span class="nx">Mage</span><span class="o">::</span><span class="na">getSingleton</span><span class="p">(</span><span class="s1">&#39;core/resource&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">getConnection</span><span class="p">(</span><span class="s1">&#39;core_write&#39;</span><span class="p">);</span> 
+<span class="nv">$write</span><span class="o">-&gt;</span><span class="na">update</span><span class="p">(</span> 
+    <span class="s1">&#39;catalog_product_entity_int&#39;</span><span class="p">,</span> 
+    <span class="k">array</span><span class="p">(</span><span class="s1">&#39;value&#39;</span> <span class="o">=&gt;</span> <span class="nx">Mage_Catalog_Model_Product_Status</span><span class="o">::</span><span class="na">STATUS_DISABLED</span><span class="p">),</span> 
+    <span class="s1">&#39;attribute_id=96 and entity_id not in (select distinct product_id from catalog_category_product)&#39;</span> 
+<span class="p">);</span>
+</pre></div><p>Ci sono <a href="http://blog.gambuzzi.it/disabilitare-i-prodotti-non-in-una-categoria.html#disqus_thread">commenti</a>.</p>                </article>
+            </aside><!-- /#featured -->
+                <section id="content" class="body">
+                    <h1>Altri articoli</h1>
+                    <hr />
+                    <ol id="posts-list" class="hfeed">
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="http://blog.gambuzzi.it/controllare-le-config-di-magento.html" rel="bookmark"
+                           title="Permalink to Controllare le config di Magento">Controllare le config di Magento</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2014-09-01T20:03:20">
+                Pubblicato: 01 09 2014
+        </abbr>
+
+        <address class="vcard author">
+                Da                         <a class="url fn" href="http://blog.gambuzzi.it/author/roberto-gambuzzi.html">Roberto Gambuzzi</a>
+        </address>
+<p>In <a href="http://blog.gambuzzi.it/category/magento.html">Magento</a>. </p>
+<p>tags: <a href="http://blog.gambuzzi.it/tag/php.html">php</a> <a href="http://blog.gambuzzi.it/tag/magento.html">magento</a> </p>
+</footer><!-- /.post-info -->                <p>dalla radice di magento</p>
+<div class="highlight"><pre>find . -type f -name <span class="s1">&#39;config.xml&#39;</span> -exec xmllint --noout <span class="o">{}</span> <span class="se">\;</span>
+</pre></div>
+
+
+<p>serve il comando <strong><code>xmllint</code></strong> installato</p>
+                <a class="readmore" href="http://blog.gambuzzi.it/controllare-le-config-di-magento.html">read more</a>
+<p>Ci sono <a href="http://blog.gambuzzi.it/controllare-le-config-di-magento.html#disqus_thread">commenti</a>.</p>                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="http://blog.gambuzzi.it/installare-magento-da-console-o-ssh.html" rel="bookmark"
+                           title="Permalink to Installare Magento da console o ssh">Installare Magento da console o ssh</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2014-09-01T20:02:20">
+                Pubblicato: 01 09 2014
+        </abbr>
+
+        <address class="vcard author">
+                Da                         <a class="url fn" href="http://blog.gambuzzi.it/author/roberto-gambuzzi.html">Roberto Gambuzzi</a>
+        </address>
+<p>In <a href="http://blog.gambuzzi.it/category/magento.html">Magento</a>. </p>
+<p>tags: <a href="http://blog.gambuzzi.it/tag/php.html">php</a> <a href="http://blog.gambuzzi.it/tag/magento.html">magento</a> </p>
+</footer><!-- /.post-info -->                <p>A seguire</p>
+<div class="highlight"><pre>php -f install.php -- <span class="se">\</span>
+--license_agreement_accepted <span class="s2">&quot;yes&quot;</span> <span class="se">\</span>
+--locale <span class="s2">&quot;en_US&quot;</span> <span class="se">\</span>
+--timezone <span class="s2">&quot;Europe/Berlin&quot;</span> <span class="se">\</span>
+--default_currency <span class="s2">&quot;EUR&quot;</span> <span class="se">\</span>
+--db_host <span class="s2">&quot;localhost&quot;</span> <span class="se">\</span>
+--db_name <span class="s2">&quot;magento&quot;</span> <span class="se">\</span>
+--db_user <span class="s2">&quot;root&quot;</span> <span class="se">\</span>
+--db_pass <span class="s2">&quot;pass&quot;</span> <span class="se">\</span>
+--url <span class="s2">&quot;http://magento.local/&quot;</span> <span class="se">\</span>
+--use_rewrites <span class="s2">&quot;yes&quot;</span> <span class="se">\</span>
+--use_secure <span class="s2">&quot;no&quot;</span> <span class="se">\</span>
+--secure_base_url <span class="s2">&quot;&quot;</span> <span class="se">\</span>
+--use_secure_admin <span class="s2">&quot;no&quot;</span> <span class="se">\</span>
+--admin_firstname <span class="s2">&quot;John&quot;</span> <span class="se">\</span>
+--admin_lastname <span class="s2">&quot;Doe&quot;</span> <span class="se">\</span>
+--admin_email <span class="s2">&quot;dymmy@dummy.it&quot;</span> <span class="se">\</span>
+--admin_username <span class="s2">&quot;admin&quot;</span> <span class="se">\</span>
+--admin_password <span class="s2">&quot;pass&quot;</span>
+</pre></div>
+                <a class="readmore" href="http://blog.gambuzzi.it/installare-magento-da-console-o-ssh.html">read more</a>
+<p>Ci sono <a href="http://blog.gambuzzi.it/installare-magento-da-console-o-ssh.html#disqus_thread">commenti</a>.</p>                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="http://blog.gambuzzi.it/recuperare-tutti-i-prodotti-per-attribute-set.html" rel="bookmark"
+                           title="Permalink to Recuperare tutti i prodotti per Attribute Set">Recuperare tutti i prodotti per Attribute Set</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2014-09-01T20:01:20">
+                Pubblicato: 01 09 2014
+        </abbr>
+
+        <address class="vcard author">
+                Da                         <a class="url fn" href="http://blog.gambuzzi.it/author/roberto-gambuzzi.html">Roberto Gambuzzi</a>
+        </address>
+<p>In <a href="http://blog.gambuzzi.it/category/magento.html">Magento</a>. </p>
+<p>tags: <a href="http://blog.gambuzzi.it/tag/php.html">php</a> <a href="http://blog.gambuzzi.it/tag/magento.html">magento</a> </p>
+</footer><!-- /.post-info -->                <p>Questo piccolo pezzo di codice server per recuperare tutti i prodotti dello store, dato il nome di un attribute set.</p>
+<div class="highlight"><pre><span class="cp">&lt;?php</span>
+<span class="k">public</span> <span class="k">function</span> <span class="nf">productsByAttributeSet</span><span class="p">(</span><span class="nv">$attrSetName</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nv">$asId</span> <span class="o">=</span> <span class="nx">Mage</span><span class="o">::</span><span class="na">getModel</span><span class="p">(</span><span class="s1">&#39;eav/entity_attribute_set&#39;</span><span class="p">)</span>
+            <span class="o">-&gt;</span><span class="na">load</span><span class="p">(</span><span class="nv">$attrSetName</span><span class="p">,</span> <span class="s1">&#39;attribute_set_name&#39;</span><span class="p">)</span>
+            <span class="o">-&gt;</span><span class="na">getAttributeSetId</span><span class="p">();</span>
+
+    <span class="nv">$products</span> <span class="o">=</span> <span class="nx">Mage</span><span class="o">::</span><span class="na">getModel</span><span class="p">(</span><span class="s1">&#39;catalog/product&#39;</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">getCollection</span><span class="p">()</span>   
+    <span class="o">-&gt;</span><span class="na">addFieldToFilter</span><span class="p">(</span><span class="s1">&#39;attribute_set_id&#39;</span><span class="p">,</span> <span class="nv">$asId</span><span class="p">);</span>
+
+    <span class="k">return</span> <span class="nv">$products</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>A questo punto sull'oggetto ...</p>
+                <a class="readmore" href="http://blog.gambuzzi.it/recuperare-tutti-i-prodotti-per-attribute-set.html">read more</a>
+<p>Ci sono <a href="http://blog.gambuzzi.it/recuperare-tutti-i-prodotti-per-attribute-set.html#disqus_thread">commenti</a>.</p>                </div><!-- /.entry-content -->
+            </article></li>
+                </ol><!-- /#posts-list -->
+<p class="paginator">
+    Page 1 / 1
+</p>
+                </section><!-- /#content -->
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>blogroll</h2>
+                        <ul>
+                            <li><a href="http://python.org/">Python.org</a></li>
+                            <li><a href="http://martinfowler.com/">Martin Fowler</a></li>
+                            <li><a href="http://www.joelonsoftware.com/">Joel On Software</a></li>
+                            <li><a href="http://alanstorm.com/">Alan Storm</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+
+                            <li><a href="https://twitter.com/gbinside">Twitter</a></li>
+                            <li><a href="https://github.com/gbinside">GitHub</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                &nbsp;
+                </address><!-- /#about -->
+
+                <p>&nbsp;</p>
+        </footer><!-- /#contentinfo -->
+
+<script type="text/javascript">
+    var disqus_config = function () {
+      this.language = "it";
+    };
+    var disqus_shortname = 'bloggambuzzi';
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
+</body>
+</html>

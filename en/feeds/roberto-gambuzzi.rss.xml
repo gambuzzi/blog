@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Code's Fragment</title><link>http://blog.gambuzzi.it/en/</link><description>and various amenities</description><atom:link href="http://blog.gambuzzi.it/feeds/roberto-gambuzzi.rss.xml" rel="self"></atom:link><lastBuildDate>Sun, 12 Oct 2014 00:00:00 +0200</lastBuildDate><item><title>Don't reinvent the wheel</title><link>http://blog.gambuzzi.it/en/non-reinventare-la-ruota.html</link><description>&lt;h2&gt;Don't reinvent the whell, we already have this.&lt;/h2&gt;
+&lt;p&gt;&lt;img alt="Dont reinvent the whell, we already have this." src="http://blog.gambuzzi.it/en/images/inventare-la-ruota.png" /&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Roberto Gambuzzi</dc:creator><pubDate>Sun, 12 Oct 2014 00:00:00 +0200</pubDate><guid>tag:blog.gambuzzi.it,2014-10-12:en/non-reinventare-la-ruota.html</guid><category>mix</category><category>funny</category></item><item><title>Pelican Simpletranslate</title><link>http://blog.gambuzzi.it/en/pelican-simpletranslate.html</link><description>&lt;p&gt;I have changed the translate engine of this blog that is made with Pelican. This is the Year of "Reinvent the Wheel", so I redone it from scratch. ^_^&lt;/p&gt;
+&lt;p&gt;You can find it here:&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://github.com/gbinside/pelican_simpletranslate"&gt;https://github.com/gbinside/pelican_simpletranslate&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Keep an eye on the final folder structure. It must be as follow:&lt;/p&gt;
+&lt;p&gt;&lt;img alt="path" src="http://blog.gambuzzi.it/en/images/simpletrans.png" /&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Roberto Gambuzzi</dc:creator><pubDate>Sun, 12 Oct 2014 00:00:00 +0200</pubDate><guid>tag:blog.gambuzzi.it,2014-10-12:en/pelican-simpletranslate.html</guid><category>python</category><category>pelican</category></item><item><title>The Joel Test</title><link>http://blog.gambuzzi.it/en/the-joel-test.html</link><description>&lt;ul&gt;
+&lt;li&gt;Do you use source control?&lt;/li&gt;
+&lt;li&gt;Can you make a build in one step?&lt;/li&gt;
+&lt;li&gt;Do you make daily builds?&lt;/li&gt;
+&lt;li&gt;Do you have a bug database?&lt;/li&gt;
+&lt;li&gt;Do you fix bugs before writing new code?&lt;/li&gt;
+&lt;li&gt;Do you have an up-to-date schedule?&lt;/li&gt;
+&lt;li&gt;Do you have a spec?&lt;/li&gt;
+&lt;li&gt;Do programmers have quiet working conditions?&lt;/li&gt;
+&lt;li&gt;Do you use the best tools money can buy?&lt;/li&gt;
+&lt;li&gt;Do you have testers?&lt;/li&gt;
+&lt;li&gt;Do new candidates write code during their interview?&lt;/li&gt;
+&lt;li&gt;Do you do hallway usability testing?&lt;/li&gt;
+&lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Roberto Gambuzzi</dc:creator><pubDate>Mon, 01 Sep 2014 16:00:21 +0200</pubDate><guid>tag:blog.gambuzzi.it,2014-09-01:en/the-joel-test.html</guid><category>mix</category></item><item><title>console utility for csv file</title><link>http://blog.gambuzzi.it/en/console-utility-for-csv-file.html</link><description>&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="x"&gt;#!/usr/bin/env php&lt;/span&gt;
+&lt;span class="cp"&gt;&amp;lt;?php&lt;/span&gt;
+
+&lt;span class="nv"&gt;$opt&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;getopt&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;f:l:h&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="c1"&gt;#echo &amp;#39;$opt: &amp;#39;;print_r($opt);&lt;/span&gt;
+&lt;span class="nv"&gt;$row&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;((&lt;/span&gt;&lt;span class="nv"&gt;$handle&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;fopen&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;$opt&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;f&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;r&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt; &lt;span class="o"&gt;!==&lt;/span&gt; &lt;span class="k"&gt;FALSE&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="k"&gt;while&lt;/span&gt; &lt;span class="p"&gt;((&lt;/span&gt;&lt;span class="nv"&gt;$data&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;fgetcsv&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;$handle&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt; &lt;span class="o"&gt;!==&lt;/span&gt; &lt;span class="k"&gt;FALSE&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;$row&lt;/span&gt;&lt;span class="o"&gt;==-&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="nv"&gt;$header&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;$data&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+        &lt;span class="nv"&gt;$row&lt;/span&gt;&lt;span class="o"&gt;++&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+        &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;$opt&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;l&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;==&lt;/span&gt;&lt;span class="nv"&gt;$row&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+                &lt;span class="nv"&gt;$num&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;count&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;$data&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+                &lt;span class="k"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&amp;lt;p&amp;gt; &lt;/span&gt;&lt;span class="si"&gt;$num&lt;/span&gt;&lt;span class="s2"&gt; fields in line &lt;/span&gt;&lt;span class="si"&gt;$row&lt;/span&gt;&lt;span class="s2"&gt;: &amp;lt;br /&amp;gt;&amp;lt;/p&amp;gt;&lt;/span&gt;&lt;span class="se"&gt;\n&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+                &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;array_key_exists&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;h&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="nv"&gt;$opt&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+                        &lt;span class="nb"&gt;print_r&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;array_combine&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;$header&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="nv"&gt;$data&lt;/span&gt;&lt;span class="p"&gt;));&lt;/span&gt;
+                &lt;span class="p"&gt;}&lt;/span&gt; &lt;span class="k"&gt;else&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+                        &lt;span class="nb"&gt;print_r&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;$data&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+                &lt;span class="p"&gt;}&lt;/span&gt;
+        &lt;span class="p"&gt;}&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+    &lt;span class="nb"&gt;fclose&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;$handle&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Roberto Gambuzzi</dc:creator><pubDate>Mon, 01 Sep 2014 05:47:17 +0200</pubDate><guid>tag:blog.gambuzzi.it,2014-09-01:en/console-utility-for-csv-file.html</guid><category>php</category><category>csv</category></item><item><title>Disable NTFS Last Access Time</title><link>http://blog.gambuzzi.it/en/disable-ntfs-last-access-time.html</link><description>&lt;p&gt;Disabling the Last Access Time improves the speed of folder and file access.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;[HKLM\SYSTEM\CurrentControlSet\Control\FileSystem] &lt;span class="s2"&gt;&amp;quot;NtfsDisableLastAccessUpdate&amp;quot;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Instructions - Go to "Start", "Run", and Type: &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;fsutil behavior &lt;span class="k"&gt;set&lt;/span&gt; &lt;span class="nv"&gt;disablelastaccess&lt;/span&gt; &lt;span class="m"&gt;1&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;Notes&lt;/strong&gt; - This can affect programs such as backup and Remote Storage that rely on this feature.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Roberto Gambuzzi</dc:creator><pubDate>Sat, 23 Aug 2014 00:55:32 +0200</pubDate><guid>tag:blog.gambuzzi.it,2014-08-23:en/disable-ntfs-last-access-time.html</guid><category>windows</category><category>batch</category></item><item><title>Abilitare l'autocompletamento dal prompt dei comandi</title><link>http://blog.gambuzzi.it/en/abilitare-lautocompletamento-dal-prompt-dei-comandi.html</link><description>&lt;ul&gt;
+&lt;li&gt;Click Start, and then click Run,&lt;/li&gt;
+&lt;li&gt;Type &lt;code&gt;Regedit&lt;/code&gt; and OK,&lt;/li&gt;
+&lt;li&gt;Double click &lt;code&gt;HKEY_LOCAL_MACHINE&lt;/code&gt;,&lt;/li&gt;
+&lt;li&gt;Double click &lt;code&gt;SOFTWARE&lt;/code&gt;,&lt;/li&gt;
+&lt;li&gt;Double click &lt;code&gt;Microsoft&lt;/code&gt;,&lt;/li&gt;
+&lt;li&gt;Double click &lt;code&gt;Command Processor&lt;/code&gt;,&lt;/li&gt;
+&lt;li&gt;In the right panel of Regedit, double click the '&lt;code&gt;CompletionChar&lt;/code&gt;' DWORD value,&lt;/li&gt;
+&lt;li&gt;Type 9 &lt;/li&gt;
+&lt;li&gt;Click OK,&lt;/li&gt;
+&lt;li&gt;Close Regedit&lt;/li&gt;
+&lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Roberto Gambuzzi</dc:creator><pubDate>Sun, 07 Nov 2010 07:15:00 +0100</pubDate><guid>tag:blog.gambuzzi.it,2010-11-07:en/abilitare-lautocompletamento-dal-prompt-dei-comandi.html</guid><category>windows</category></item></channel></rss>

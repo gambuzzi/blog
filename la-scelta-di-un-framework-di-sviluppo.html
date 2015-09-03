@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+        <meta charset="utf-8" />
+        <meta name=viewport content="width=device-width, initial-scale=1">
+        <title>La scelta di un framework di sviluppo</title>
+        <link rel="stylesheet" href="http://blog.gambuzzi.it/theme/css/main.css" />
+
+        <!--[if IE]>
+            <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script src="http://blog.gambuzzi.it/theme/js/fuzzyset.js"></script>
+		<meta name="google-site-verification" content="62DfkLCugSzm-vW0NRbnM2aCMcGu7uqfsXjED71GNbI" />
+    <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-54060223-1']);
+    _gaq.push(['_trackPageview']);
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+    </script>
+<script type="text/javascript">
+  var _gauges = _gauges || [];
+  (function() {
+    var t   = document.createElement('script');
+    t.type  = 'text/javascript';
+    t.async = true;
+    t.id    = 'gauges-tracker';
+    t.setAttribute('data-site-id', '550ab326de2e26670a017635');
+    t.setAttribute('data-track-path', 'https://track.gaug.es/track.gif');
+    t.src = 'https://track.gaug.es/track.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(t, s);
+  })();
+</script>
+</head>
+
+<body id="index" class="home lang- 1.0.0">
+        <header id="banner" class="body">
+                <h1><a href="http://blog.gambuzzi.it/">Frammenti di codice  <strong>e amenità varie</strong></a></h1>
+
+                <div class="langchange"><ul>
+                        <li><a href="http://blog.gambuzzi.it/en"><img src="http://blog.gambuzzi.it/theme/images/en.png" alt="en"/></a></li>
+                    <!-- separator -->
+                    </ul>
+                </div>
+
+                <form id="headsearch" action='/search.html' method="GET">cerca: <input type="text" name="q" id="q0" /></form>
+
+                <nav><ul>
+                    <li><a href="http://blog.gambuzzi.it/category/anoto-digital-paper.html">Anoto Digital Paper</a></li>
+                    <li><a href="http://blog.gambuzzi.it/category/javascript.html">Javascript</a></li>
+                    <li><a href="http://blog.gambuzzi.it/category/magento.html">Magento</a></li>
+                    <li class="active"><a href="http://blog.gambuzzi.it/category/mix.html">Mix</a></li>
+                    <li><a href="http://blog.gambuzzi.it/category/php.html">Php</a></li>
+                    <li><a href="http://blog.gambuzzi.it/category/python.html">Python</a></li>
+                    <li><a href="http://blog.gambuzzi.it/category/windows.html">Windows</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="http://blog.gambuzzi.it/la-scelta-di-un-framework-di-sviluppo.html" rel="bookmark"
+           title="Permalink a La scelta di un framework di sviluppo">La scelta di un framework di sviluppo</a></h1>
+<a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="gbinside">Tweet</a><script type="text/javascript" src="//platform.twitter.com/widgets.js"></script>
+    </header>
+
+    <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2014-09-22T00:00:00">
+                Pubblicato: 22 09 2014
+        </abbr>
+
+        <address class="vcard author">
+                Da                         <a class="url fn" href="http://blog.gambuzzi.it/author/roberto-gambuzzi.html">Roberto Gambuzzi</a>
+        </address>
+<p>In <a href="http://blog.gambuzzi.it/category/mix.html">Mix</a>. </p>
+<p>tags: <a href="http://blog.gambuzzi.it/tag/mix.html">mix</a> <a href="http://blog.gambuzzi.it/tag/framework.html">framework</a> </p>
+</footer><!-- /.post-info -->      <h2>Introduzione: quando reinventare la ruota?</h2>
+<p>Parlare di confronto fra Framework è un po’ come comparare diversi kit per trovare gli strumenti perfetti per edificare una casa. Verrebbe da dire che questi siano mattoni, cemento e cazzuola, ma questo “kit” non va bene per tutte le case. Pensiamo ad esempio agli strumenti che servono per una casa in legno.</p>
+<p>Il tema dei Framework si riaggancia a quello, non nuovo in campo informatico, del riutilizzo del codice. “Non reinventiamo la ruota” ovvero usiamo codice già scritto, provato, testato, debuggato, ottimizzato.</p>
+<p>Ma se non avessimo mai reinventato la ruota useremmo ancora le ruote in legno dei romani. Reinventare la ruota è una cosa che gli ingegneri del campo automotive fanno in continuazione; le ruote di una Ferrari sono, letteralmente, continuamente reinventate e migliorate.</p>
+<p>Questo non vuole però dire che usare la ruota migliore sul mercato sia la cosa giusta per il nostro progetto. Se stiamo progettando un carrello della spesa la ruota di una Ferrari, per quanto sia una delle migliori ruote del mondo, non andrà bene. Serve una ruota adatta allo scopo.</p>
+<p>Allo stesso modo un Framework può andare benissimo per uno scopo, ma essere inutile o dannoso per un altro.</p>
+<p>Quando si usa un Framework si incappa sempre in quella che viene chiamata “complessità accidentale” o “debito tecnologico”, ovvero nell’utilizzo di uno strumento per velocizzare il lavoro, che richiede comunque tempo per apprendere lo strumento stesso.</p>
+<p>Se invece di andare a piedi guidiamo un’automobile arriviamo più velocemente al lavoro, ma dobbiamo imparare a guidarla, dobbiamo rifornirla, mantenerla, pagare bolli, assicurazioni… se poi lavoriamo a 100 metri da casa, il discorso perde di utilità. Allo stesso modo l’uso di un framework può rallentare lo sviluppo anziché velocizzarlo.</p>
+<h2>Quando usare un framework e quando non usarlo</h2>
+<p>Quando è utile usare un Framework? All’interno di progetti che necessitano di sicurezza sui login, l’uso di un Framework o di parti di esso (framework come symfony2 sono modulari e si può usare anche solo il componente di sicurezza), sono raccomandati per non incappare in errori comuni. Trovata una vulnerabilità del componente usato, si è però attaccabili. Non tutti i framework sono perfetti.</p>
+<p>Per progetti molto piccoli un framework può essere controproducente: costi di apprendimento e di utilizzo possono cioè superare di gran lunga il tempo di creazione del nostro servizio partendo dal nulla. Per progetti molto grandi un framework può dare un forte sprint iniziale per poi rivelarsi una palla al piede arrivati al punto di dovere sviluppare funzionalità molto particolari o complesse. Non è bello dover dire al cliente: “Scusi non si può fare perché il framework che abbiamo usato non supporta questa modalità di scambio dati”.</p>
+<p>Al cliente non importa, o non dovrebbe importare, la tecnologia usata per avere il prodotto richiesto. Se voglio una casa, descrivo la casa, non dico che strumenti usare per farla o come usarli. Mi affido a professionisti il cui lavoro è fare case.</p>
+<p>Per progetti di medio respiro i framework sono una grande risorsa.</p>
+<p>Mi sento di dare un consiglio: reinventate la ruota e non usate framework per quello che è il vostro core-business. Se state ad esempio fornendo un servizio di invio newsletter via e-mail, usate pure un framework per tutto quello che riguarda ad esempio gestione utenti e pannello di amministrazione. Scrivete però ex novo il vostro sistema di coda delle mail e il motore di template, che sarà il vostro punto forte, quello su cui dovete eccellere. Usando qualcosa di fornito da un framework sarete nella mediocrità e il vostro business rischierà di non svilpparsi al meglio.</p>
+<h2>Come scegliere il framework</h2>
+<p>Quale framework è consigliabile usare per il proprio progetto?</p>
+<p>Parlare di NET MVC rispetto a Django, PHP o Ruby on Rails per arrivare a stabilire the best of senza avere un’idea del terreno di confronto rischia di originare una risposta non obiettiva.</p>
+<p>Ognuno di questi ha proprie peculiarità, che lo avvicinano o allontanano dalle necessità con una serie di aspetti correlati al progetto da realizzare. Giocano a favore di una soluzione piuttosto che di un’altra diverse componenti, a cominciare dal target, dalla tipologia di applicazione da sviluppare e alla piattaforma utilizzata, senza dimenticare la filosofia di programmazione (open source oppure no).</p>
+<p>I concetti comuni di questi Framework sono nell’aria. Symfony2 e ZendFramework2 stanno convergendo perché concetti come testabilità, inversion of control e dependency injection, sono ormai buone pratiche da utilizzare e che ogni programmatore dovrebbe conoscere.</p>
+<p>Scendendo in dettagli più consoni allo sviluppo, ci sono alcuni parametri che aiutano nel processo di scelta, che sono la qualità e la disponibilità di librerie e strumenti quali ambienti di sviluppo e debugger, oltre alle dimensioni e affidabilità della community legata a quel framework. Altro punto che può fare scegliere un framework piuttosto dell’altro è la disponibilità di sviluppatori per quel framework e linguaggio, legato anche alla realtà del paese in cui ci si trova. In Italia è più  facile trovare un programmatore PHP piuttosto che uno Ruby.</p>
+<h2>Aspetti di budget</h2>
+<p>Più marginale, ma comunque degna di nota è la voce budget. I costi dello sviluppo sono</p>
+<p>diversi a seconda della tecnologia, ma non sempre chi più spende, meno spende e viceversa. In questo specifico caso, soluzioni come PHP appaiono favorite per il bilanciamento complessivo dei vari aspetti in gioco, specialmente per quanto riguarda progetti di dimensioni medio-piccole, dove ad esempio i costi legate alle licenze per il DB possono risultare troppo onerose, mentre su applicazioni di più ampia scala è preferibile la soluzione di Microsoft, grazie al supporto che l’azienda offre ed alla superiore qualità, ma a questo punto, su un progetto grosso e con budget, ha ancora senso usare un framework? Dipende dal progetto. Sono decisioni che purtroppo vanno anticipate e quando si anticipa una decisione non basta tutta la analisi del mondo per essere sicuri che si sia fatta la scelta corretta.</p>
+<h2>Diffidate dalle soluzioni "all inclusive"</h2>
+<p>Diffidate dai framework che vi promettono di essere ottimizzati per qualunque esigenza: Ottimizzato per tutto è uguale a ottimizzato per nulla. Prendiamo ad esempio le array PHP: sono comode, ma quando dichiarano di essere ottimizzate per contenere qualunque tipo di dato stanno dicendo solo che memorizzare una array di due interi usa 1kB di ram. Come l’XML; può rappresentare qualunque documento, ma nessuno in modo efficiente.</p>
+<p>Non usate framework che vi sembrano troppo complessi o che non sono alla portata dei vostri sviluppatori. Non siamo tutti uguali e percepiamo la complessità in maniera differente, ma se per apprendere un framework servono più di 6 mesi c’è un problema di base. I concetti e le buone pratiche informatiche si rinnovano in continuazione, un framework si rinnova in media ogni 2 anni. Non possiamo passare il tempo a correre dietro al framework e a riapprenderlo in continuazione. Come sviluppatori si è pagati per risolvere problemi, non per conoscere framework.</p>
+<h2>Conclusione</h2>
+<p>Tirando le somme, proprio in virtù del fatto che nessun framework può fregiarsi del titolo di “migliore in assoluto”, nel corso dello sviluppo del vostro progetto, specie se complesso, potreste anche arrivare alla conclusione che sia necessario realizzare la persistenza di dati in Java, il front-end in PHP e la business logic in tecnologia Microsoft. Non abbiate paura durante il progetto di tornare indietro anche su una decisione di piattaforma o framework, potrebbe farvi risparmiare giorni di lavoro in futuro. In ogni caso finito il progetto, guardatevi indietro e rispondete a una domanda: “Quanta percentuale del framework che ho scelto, ho effettivamente usato?”</p>
+    </div><!-- /.entry-content -->
+    <div class="comments">
+      <h2>Commenti !</h2>
+      <div id="disqus_thread"></div>
+      <script type="text/javascript">
+        var disqus_shortname = 'bloggambuzzi';
+        var disqus_identifier = 'la-scelta-di-un-framework-di-sviluppo.html';
+        var disqus_url = 'http://blog.gambuzzi.it/la-scelta-di-un-framework-di-sviluppo.html';
+        (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//bloggambuzzi.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+      </script>
+      <noscript>Please enable JavaScript to view the comments.</noscript>
+    </div>
+
+  </article>
+</section>
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>blogroll</h2>
+                        <ul>
+                            <li><a href="http://python.org/">Python.org</a></li>
+                            <li><a href="http://martinfowler.com/">Martin Fowler</a></li>
+                            <li><a href="http://www.joelonsoftware.com/">Joel On Software</a></li>
+                            <li><a href="http://alanstorm.com/">Alan Storm</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+
+                            <li><a href="https://twitter.com/gbinside">Twitter</a></li>
+                            <li><a href="https://github.com/gbinside">GitHub</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                &nbsp;
+                </address><!-- /#about -->
+
+                <p>&nbsp;</p>
+        </footer><!-- /#contentinfo -->
+
+<script type="text/javascript">
+    var disqus_config = function () {
+      this.language = "it";
+    };
+    var disqus_shortname = 'bloggambuzzi';
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
+</body>
+</html>

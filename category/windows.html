@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+        <meta charset="utf-8" />
+        <meta name=viewport content="width=device-width, initial-scale=1">
+        <title>Frammenti di codice - Windows</title>
+        <link rel="stylesheet" href="http://blog.gambuzzi.it/theme/css/main.css" />
+
+        <!--[if IE]>
+            <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script src="http://blog.gambuzzi.it/theme/js/fuzzyset.js"></script>
+		<meta name="google-site-verification" content="62DfkLCugSzm-vW0NRbnM2aCMcGu7uqfsXjED71GNbI" />
+    <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-54060223-1']);
+    _gaq.push(['_trackPageview']);
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+    </script>
+<script type="text/javascript">
+  var _gauges = _gauges || [];
+  (function() {
+    var t   = document.createElement('script');
+    t.type  = 'text/javascript';
+    t.async = true;
+    t.id    = 'gauges-tracker';
+    t.setAttribute('data-site-id', '550ab326de2e26670a017635');
+    t.setAttribute('data-track-path', 'https://track.gaug.es/track.gif');
+    t.src = 'https://track.gaug.es/track.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(t, s);
+  })();
+</script>
+</head>
+
+<body id="index" class="home lang- 1.0.0">
+        <header id="banner" class="body">
+                <h1><a href="http://blog.gambuzzi.it/">Frammenti di codice  <strong>e amenità varie</strong></a></h1>
+
+                <div class="langchange"><ul>
+                        <li><a href="http://blog.gambuzzi.it/en"><img src="http://blog.gambuzzi.it/theme/images/en.png" alt="en"/></a></li>
+                    <!-- separator -->
+                    </ul>
+                </div>
+
+                <form id="headsearch" action='/search.html' method="GET">cerca: <input type="text" name="q" id="q0" /></form>
+
+                <nav><ul>
+                    <li><a href="http://blog.gambuzzi.it/category/anoto-digital-paper.html">Anoto Digital Paper</a></li>
+                    <li><a href="http://blog.gambuzzi.it/category/javascript.html">Javascript</a></li>
+                    <li><a href="http://blog.gambuzzi.it/category/magento.html">Magento</a></li>
+                    <li><a href="http://blog.gambuzzi.it/category/mix.html">Mix</a></li>
+                    <li><a href="http://blog.gambuzzi.it/category/php.html">Php</a></li>
+                    <li><a href="http://blog.gambuzzi.it/category/python.html">Python</a></li>
+                    <li class="active"><a href="http://blog.gambuzzi.it/category/windows.html">Windows</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+
+            <aside id="featured" class="body">
+                <article>
+                    <h1 class="entry-title"><a href="http://blog.gambuzzi.it/disabilitare-la-memorizzazione-del-last-access-time-in-ntfs.html">Disabilitare la memorizzazione del Last Access Time in NTFS</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2014-08-23T00:55:32">
+                Pubblicato: 23 08 2014
+        </abbr>
+
+        <address class="vcard author">
+                Da                         <a class="url fn" href="http://blog.gambuzzi.it/author/roberto-gambuzzi.html">Roberto Gambuzzi</a>
+        </address>
+<p>In <a href="http://blog.gambuzzi.it/category/windows.html">Windows</a>. </p>
+<p>tags: <a href="http://blog.gambuzzi.it/tag/windows.html">windows</a> <a href="http://blog.gambuzzi.it/tag/batch.html">batch</a> </p>
+</footer><!-- /.post-info --><p>Disabilitare il "Last Access Time", il momento di ultimo accesso al file, aumenta la velocità di accesso ai file e cartelle. </p>
+<div class="highlight"><pre>[HKLM\SYSTEM\CurrentControlSet\Control\FileSystem] <span class="s2">&quot;NtfsDisableLastAccessUpdate&quot;</span>
+</pre></div>
+
+
+<p>Come fare - Vai su "Start", "Esegui", e scrivi: </p>
+<div class="highlight"><pre>fsutil behavior <span class="k">set</span> <span class="nv">disablelastaccess</span> <span class="m">1</span>
+</pre></div>
+
+
+<p><strong>Nota</strong> - Questo può compromettere funzionalità come programmi di backup e/o storage remoto che sfruttino questa informazione.</p><p>Ci sono <a href="http://blog.gambuzzi.it/disabilitare-la-memorizzazione-del-last-access-time-in-ntfs.html#disqus_thread">commenti</a>.</p>                </article>
+            </aside><!-- /#featured -->
+                <section id="content" class="body">
+                    <h1>Altri articoli</h1>
+                    <hr />
+                    <ol id="posts-list" class="hfeed">
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="http://blog.gambuzzi.it/disattivare-il-firewall-da-command-line-in-windows-7.html" rel="bookmark"
+                           title="Permalink to Disattivare il firewall da command line in windows 7">Disattivare il firewall da command line in windows 7</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2014-08-23T00:55:32">
+                Pubblicato: 23 08 2014
+        </abbr>
+
+        <address class="vcard author">
+                Da                         <a class="url fn" href="http://blog.gambuzzi.it/author/roberto-gambuzzi.html">Roberto Gambuzzi</a>
+        </address>
+<p>In <a href="http://blog.gambuzzi.it/category/windows.html">Windows</a>. </p>
+<p>tags: <a href="http://blog.gambuzzi.it/tag/windows.html">windows</a> <a href="http://blog.gambuzzi.it/tag/batch.html">batch</a> </p>
+</footer><!-- /.post-info -->                <p>Da un prompt dei comandi avviato come amministratore</p>
+<div class="highlight"><pre>netsh advfirewall <span class="k">set</span> <span class="nv">AllProfiles</span> state <span class="k">off</span>
+</pre></div>
+                <a class="readmore" href="http://blog.gambuzzi.it/disattivare-il-firewall-da-command-line-in-windows-7.html">read more</a>
+<p>Ci sono <a href="http://blog.gambuzzi.it/disattivare-il-firewall-da-command-line-in-windows-7.html#disqus_thread">commenti</a>.</p>                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="http://blog.gambuzzi.it/nascondere-il-pc-in-lan.html" rel="bookmark"
+                           title="Permalink to Nascondere il PC in LAN">Nascondere il PC in LAN</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2014-08-23T00:55:32">
+                Pubblicato: 23 08 2014
+        </abbr>
+
+        <address class="vcard author">
+                Da                         <a class="url fn" href="http://blog.gambuzzi.it/author/roberto-gambuzzi.html">Roberto Gambuzzi</a>
+        </address>
+<p>In <a href="http://blog.gambuzzi.it/category/windows.html">Windows</a>. </p>
+<p>tags: <a href="http://blog.gambuzzi.it/tag/windows.html">windows</a> <a href="http://blog.gambuzzi.it/tag/batch.html">batch</a> </p>
+</footer><!-- /.post-info -->                <p>Da un prompt dei comandi</p>
+<div class="highlight"><pre>net config server <span class="n">/hidden:yes</span>
+</pre></div>
+
+
+<p><strong>Nota:</strong> su windows 7 questo comando non funziona. Vedi <a href="http://social.technet.microsoft.com/Forums/en-US/w7itpronetworking/thread/040bb9e7-bfa2-4b24-9386-0316739785b7/">link</a></p>
+                <a class="readmore" href="http://blog.gambuzzi.it/nascondere-il-pc-in-lan.html">read more</a>
+<p>Ci sono <a href="http://blog.gambuzzi.it/nascondere-il-pc-in-lan.html#disqus_thread">commenti</a>.</p>                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="http://blog.gambuzzi.it/echo-della-data.html" rel="bookmark"
+                           title="Permalink to Echo della data">Echo della data</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2014-08-23T00:49:03">
+                Pubblicato: 23 08 2014
+        </abbr>
+
+        <address class="vcard author">
+                Da                         <a class="url fn" href="http://blog.gambuzzi.it/author/roberto-gambuzzi.html">Roberto Gambuzzi</a>
+        </address>
+<p>In <a href="http://blog.gambuzzi.it/category/windows.html">Windows</a>. </p>
+<p>tags: <a href="http://blog.gambuzzi.it/tag/windows.html">windows</a> <a href="http://blog.gambuzzi.it/tag/batch.html">batch</a> </p>
+</footer><!-- /.post-info -->                <p>all'interno di un file <code>.bat</code></p>
+<div class="highlight"><pre><span class="k">for</span> <span class="n">/f</span> <span class="s2">&quot;tokens=1-3* delims=/&quot;</span> <span class="nv">%%a</span> in (<span class="s1">&#39;date /t&#39;</span>) <span class="k">do</span> <span class="k">echo</span> <span class="nv">%%a</span> <span class="nv">%%b</span> <span class="nv">%%c</span>
+</pre></div>
+                <a class="readmore" href="http://blog.gambuzzi.it/echo-della-data.html">read more</a>
+<p>Ci sono <a href="http://blog.gambuzzi.it/echo-della-data.html#disqus_thread">commenti</a>.</p>                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="http://blog.gambuzzi.it/nascondere-un-utente-dalla-schermata-di-login-di-windows-xp.html" rel="bookmark"
+                           title="Permalink to Nascondere un utente dalla schermata di login di windows XP">Nascondere un utente dalla schermata di login di windows XP</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2010-10-06T02:51:00">
+                Pubblicato: 06 10 2010
+        </abbr>
+
+        <address class="vcard author">
+                Da                         <a class="url fn" href="http://blog.gambuzzi.it/author/roberto-gambuzzi.html">Roberto Gambuzzi</a>
+        </address>
+<p>In <a href="http://blog.gambuzzi.it/category/windows.html">Windows</a>. </p>
+<p>tags: <a href="http://blog.gambuzzi.it/tag/windows.html">windows</a> <a href="http://blog.gambuzzi.it/tag/batch.html">batch</a> </p>
+</footer><!-- /.post-info -->                <p>Andare alla seguente chiave di registro</p>
+<div class="highlight"><pre>HKEY_LOCAL_MACHINE\Software\Microsoft\Windows NT\CurrentVersion\Winlogon\SpecialAccounts\UserList
+</pre></div>
+
+
+<p>Sotto a questa chiave create un nuovo valore <code>DWORD</code> col nome corrispondente all'utente da nascondere e settatene il valore a:</p>
+<div class="highlight"><pre><span class="m">0</span> – Nasconde l&#39;utente
+<span class="m">1</span> – Mostra l&#39;utente
+</pre></div>
+
+
+<p>In alternativa da linea di comando ...</p>
+                <a class="readmore" href="http://blog.gambuzzi.it/nascondere-un-utente-dalla-schermata-di-login-di-windows-xp.html">read more</a>
+<p>Ci sono <a href="http://blog.gambuzzi.it/nascondere-un-utente-dalla-schermata-di-login-di-windows-xp.html#disqus_thread">commenti</a>.</p>                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="http://blog.gambuzzi.it/problemi-di-accesso-a-file-via-rete-con-database-chiamiamoli-cosi-cobol-o-bde.html" rel="bookmark"
+                           title="Permalink to Problemi di accesso a file via rete con Database (chiamiamoli così) COBOL o BDE">Problemi di accesso a file via rete con Database (chiamiamoli così) COBOL o BDE</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2010-07-09T07:26:00">
+                Pubblicato: 09 07 2010
+        </abbr>
+
+        <address class="vcard author">
+                Da                         <a class="url fn" href="http://blog.gambuzzi.it/author/roberto-gambuzzi.html">Roberto Gambuzzi</a>
+        </address>
+<p>In <a href="http://blog.gambuzzi.it/category/windows.html">Windows</a>. </p>
+<p>tags: <a href="http://blog.gambuzzi.it/tag/windows.html">windows</a> <a href="http://blog.gambuzzi.it/tag/db.html">db</a> </p>
+</footer><!-- /.post-info -->                <p>Il problema è altresì noto come <em>Opportunistic lock</em>.</p>
+<p>E' un problema di accesso al file. Alcune tecniche impiegate per velocizzare questi accessi si rivelano controproduttive con tecniche di accesso ai file di vecchio stampo.</p>
+<p>La soluzione sta nel disattivare questi '<em>miglioramenti</em>'. Per fare cio inserire nel registro la chiave allegata ...</p>
+                <a class="readmore" href="http://blog.gambuzzi.it/problemi-di-accesso-a-file-via-rete-con-database-chiamiamoli-cosi-cobol-o-bde.html">read more</a>
+<p>Ci sono <a href="http://blog.gambuzzi.it/problemi-di-accesso-a-file-via-rete-con-database-chiamiamoli-cosi-cobol-o-bde.html#disqus_thread">commenti</a>.</p>                </div><!-- /.entry-content -->
+            </article></li>
+                </ol><!-- /#posts-list -->
+<p class="paginator">
+    Page 1 / 1
+</p>
+                </section><!-- /#content -->
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>blogroll</h2>
+                        <ul>
+                            <li><a href="http://python.org/">Python.org</a></li>
+                            <li><a href="http://martinfowler.com/">Martin Fowler</a></li>
+                            <li><a href="http://www.joelonsoftware.com/">Joel On Software</a></li>
+                            <li><a href="http://alanstorm.com/">Alan Storm</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+
+                            <li><a href="https://twitter.com/gbinside">Twitter</a></li>
+                            <li><a href="https://github.com/gbinside">GitHub</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                &nbsp;
+                </address><!-- /#about -->
+
+                <p>&nbsp;</p>
+        </footer><!-- /#contentinfo -->
+
+<script type="text/javascript">
+    var disqus_config = function () {
+      this.language = "it";
+    };
+    var disqus_shortname = 'bloggambuzzi';
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
+</body>
+</html>

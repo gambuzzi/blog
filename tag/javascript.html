@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+        <meta charset="utf-8" />
+        <meta name=viewport content="width=device-width, initial-scale=1">
+        <title>Frammenti di codice - javascript</title>
+        <link rel="stylesheet" href="http://blog.gambuzzi.it/theme/css/main.css" />
+
+        <!--[if IE]>
+            <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script src="http://blog.gambuzzi.it/theme/js/fuzzyset.js"></script>
+		<meta name="google-site-verification" content="62DfkLCugSzm-vW0NRbnM2aCMcGu7uqfsXjED71GNbI" />
+    <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-54060223-1']);
+    _gaq.push(['_trackPageview']);
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+    </script>
+<script type="text/javascript">
+  var _gauges = _gauges || [];
+  (function() {
+    var t   = document.createElement('script');
+    t.type  = 'text/javascript';
+    t.async = true;
+    t.id    = 'gauges-tracker';
+    t.setAttribute('data-site-id', '550ab326de2e26670a017635');
+    t.setAttribute('data-track-path', 'https://track.gaug.es/track.gif');
+    t.src = 'https://track.gaug.es/track.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(t, s);
+  })();
+</script>
+</head>
+
+<body id="index" class="home lang- 1.0.0">
+        <header id="banner" class="body">
+                <h1><a href="http://blog.gambuzzi.it/">Frammenti di codice  <strong>e amenità varie</strong></a></h1>
+
+                <div class="langchange"><ul>
+                        <li><a href="http://blog.gambuzzi.it/en"><img src="http://blog.gambuzzi.it/theme/images/en.png" alt="en"/></a></li>
+                    <!-- separator -->
+                    </ul>
+                </div>
+
+                <form id="headsearch" action='/search.html' method="GET">cerca: <input type="text" name="q" id="q0" /></form>
+
+                <nav><ul>
+                    <li><a href="http://blog.gambuzzi.it/category/anoto-digital-paper.html">Anoto Digital Paper</a></li>
+                    <li><a href="http://blog.gambuzzi.it/category/javascript.html">Javascript</a></li>
+                    <li><a href="http://blog.gambuzzi.it/category/magento.html">Magento</a></li>
+                    <li><a href="http://blog.gambuzzi.it/category/mix.html">Mix</a></li>
+                    <li><a href="http://blog.gambuzzi.it/category/php.html">Php</a></li>
+                    <li><a href="http://blog.gambuzzi.it/category/python.html">Python</a></li>
+                    <li><a href="http://blog.gambuzzi.it/category/windows.html">Windows</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+
+            <aside id="featured" class="body">
+                <article>
+                    <h1 class="entry-title"><a href="http://blog.gambuzzi.it/aggiungere-la-funzione-trim-alla-classe-string.html">Aggiungere la funzione trim alla classe String</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2012-01-16T05:24:00">
+                Pubblicato: 16 01 2012
+        </abbr>
+
+        <address class="vcard author">
+                Da                         <a class="url fn" href="http://blog.gambuzzi.it/author/roberto-gambuzzi.html">Roberto Gambuzzi</a>
+        </address>
+<p>In <a href="http://blog.gambuzzi.it/category/javascript.html">Javascript</a>. </p>
+<p>tags: <a href="http://blog.gambuzzi.it/tag/javascript.html">javascript</a> </p>
+</footer><!-- /.post-info --><div class="highlight"><pre><span class="nb">String</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">trim</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/^\s*/</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">).</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/\s*$/</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>è stato preferito fare così, piuttosto che</p>
+<div class="highlight"><pre><span class="nb">String</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">trim</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/^\s*|\s*$/</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>per motivi di performance.</p><p>Ci sono <a href="http://blog.gambuzzi.it/aggiungere-la-funzione-trim-alla-classe-string.html#disqus_thread">commenti</a>.</p>                </article>
+            </aside><!-- /#featured -->
+                <section id="content" class="body">
+                    <h1>Altri articoli</h1>
+                    <hr />
+                    <ol id="posts-list" class="hfeed">
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="http://blog.gambuzzi.it/hyperlink-su-tutte-le-email-di-un-documento.html" rel="bookmark"
+                           title="Permalink to Hyperlink su tutte le email di un documento">Hyperlink su tutte le email di un documento</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2010-11-23T08:52:00">
+                Pubblicato: 23 11 2010
+        </abbr>
+
+        <address class="vcard author">
+                Da                         <a class="url fn" href="http://blog.gambuzzi.it/author/roberto-gambuzzi.html">Roberto Gambuzzi</a>
+        </address>
+<p>In <a href="http://blog.gambuzzi.it/category/javascript.html">Javascript</a>. </p>
+<p>tags: <a href="http://blog.gambuzzi.it/tag/javascript.html">javascript</a> </p>
+</footer><!-- /.post-info -->                <div class="highlight"><pre><span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">innerHTML</span><span class="o">=</span><span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">innerHTML</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/([a-zA-Z0-9_.-]+@[a-zA-Z0-9-.]+\.[a-zA-Z0-9]{2,4})/gi</span><span class="p">,</span> <span class="s1">&#39;&lt;a href=&quot;mailto:$1&quot;&gt;$1&lt;/a&gt;&#39;</span><span class="p">);</span>
+</pre></div>
+
+
+<p>Con questo codice si sostituisce ogni mail trovata nel documento con un link cliccabile ad essa. Si potrebbe raffinare la regular expression per il match di email che non abbiano già ...</p>
+                <a class="readmore" href="http://blog.gambuzzi.it/hyperlink-su-tutte-le-email-di-un-documento.html">read more</a>
+<p>Ci sono <a href="http://blog.gambuzzi.it/hyperlink-su-tutte-le-email-di-un-documento.html#disqus_thread">commenti</a>.</p>                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="http://blog.gambuzzi.it/base64.html" rel="bookmark"
+                           title="Permalink to Base64">Base64</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2010-11-23T01:45:00">
+                Pubblicato: 23 11 2010
+        </abbr>
+
+        <address class="vcard author">
+                Da                         <a class="url fn" href="http://blog.gambuzzi.it/author/roberto-gambuzzi.html">Roberto Gambuzzi</a>
+        </address>
+<p>In <a href="http://blog.gambuzzi.it/category/javascript.html">Javascript</a>. </p>
+<p>tags: <a href="http://blog.gambuzzi.it/tag/javascript.html">javascript</a> </p>
+</footer><!-- /.post-info -->                <div class="highlight"><pre><span class="kd">var</span> <span class="nx">Base64</span> <span class="o">=</span> <span class="p">{</span>
+
+    <span class="c1">// private property</span>
+    <span class="nx">_keyStr</span> <span class="o">:</span> <span class="s2">&quot;ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=&quot;</span><span class="p">,</span>
+
+    <span class="c1">// public method for encoding</span>
+    <span class="nx">encode</span> <span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">input</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">var</span> <span class="nx">output</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">;</span>
+        <span class="kd">var</span> <span class="nx">chr1</span><span class="p">,</span> <span class="nx">chr2</span><span class="p">,</span> <span class="nx">chr3</span><span class="p">,</span> <span class="nx">enc1</span><span class="p">,</span> <span class="nx">enc2</span><span class="p">,</span> <span class="nx">enc3</span><span class="p">,</span> <span class="nx">enc4</span><span class="p">;</span>
+        <span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+        <span class="nx">input</span> <span class="o">=</span> <span class="nx">Base64</span><span class="p">.</span><span class="nx">_utf8_encode</span><span class="p">(</span><span class="nx">input</span><span class="p">);</span>
+
+        <span class="k">while</span> <span class="p">(</span><span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">input</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span> <span class="p">{</span>
+
+            <span class="nx">chr1</span> <span class="o">=</span> <span class="nx">input</span><span class="p">.</span><span class="nx">charCodeAt</span><span class="p">(</span><span class="nx">i</span><span class="o">++</span><span class="p">);</span>
+            <span class="nx">chr2</span> <span class="o">=</span> <span class="nx">input</span><span class="p">.</span><span class="nx">charCodeAt</span><span class="p">(</span><span class="nx">i</span><span class="o">++</span><span class="p">);</span>
+            <span class="nx">chr3</span> <span class="o">=</span> <span class="nx">input</span><span class="p">.</span><span class="nx">charCodeAt</span><span class="p">(</span><span class="nx">i</span><span class="o">++</span><span class="p">);</span>
+
+            <span class="nx">enc1</span> <span class="o">=</span> <span class="nx">chr1</span> <span class="o">&gt;&gt;</span> <span class="mi">2</span><span class="p">;</span>
+            <span class="nx">enc2 ...</span></pre></div>
+                <a class="readmore" href="http://blog.gambuzzi.it/base64.html">read more</a>
+<p>Ci sono <a href="http://blog.gambuzzi.it/base64.html#disqus_thread">commenti</a>.</p>                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="http://blog.gambuzzi.it/hyperlink-a-google-maps-su-tutte-gli-indirizzi-stradali-di-un-documento.html" rel="bookmark"
+                           title="Permalink to Hyperlink a Google maps su tutte gli indirizzi (stradali) di un documento">Hyperlink a Google maps su tutte gli indirizzi (stradali) di un documento</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2010-11-23T01:45:00">
+                Pubblicato: 23 11 2010
+        </abbr>
+
+        <address class="vcard author">
+                Da                         <a class="url fn" href="http://blog.gambuzzi.it/author/roberto-gambuzzi.html">Roberto Gambuzzi</a>
+        </address>
+<p>In <a href="http://blog.gambuzzi.it/category/javascript.html">Javascript</a>. </p>
+<p>tags: <a href="http://blog.gambuzzi.it/tag/javascript.html">javascript</a> </p>
+</footer><!-- /.post-info -->                <p>Il codice è simile a quello che metter l'hyperlink alle mail, sempre da eseguire preferibilmente nell'evento OnLoad del BODY.</p>
+<div class="highlight"><pre><span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">innerHTML</span><span class="o">=</span><span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">innerHTML</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span>
+    <span class="sr">/((Via|viale|piazza|largo)[^+]*?\d+[^+]*?-[^+]*?\d{5}[^+]*?(Modena|Parma))/gi</span><span class="p">,</span> 
+    <span class="s1">&#39;&lt;a href=&quot;http://maps.google.it/maps?f=q&amp;source=s_q&amp;hl ...</span></pre></div>
+                <a class="readmore" href="http://blog.gambuzzi.it/hyperlink-a-google-maps-su-tutte-gli-indirizzi-stradali-di-un-documento.html">read more</a>
+<p>Ci sono <a href="http://blog.gambuzzi.it/hyperlink-a-google-maps-su-tutte-gli-indirizzi-stradali-di-un-documento.html#disqus_thread">commenti</a>.</p>                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="http://blog.gambuzzi.it/creare-una-array-con-tutte-le-immagini-di-una-cartella.html" rel="bookmark"
+                           title="Permalink to Creare una array con tutte le immagini di una cartella">Creare una array con tutte le immagini di una cartella</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2010-11-22T02:05:00">
+                Pubblicato: 22 11 2010
+        </abbr>
+
+        <address class="vcard author">
+                Da                         <a class="url fn" href="http://blog.gambuzzi.it/author/roberto-gambuzzi.html">Roberto Gambuzzi</a>
+        </address>
+<p>In <a href="http://blog.gambuzzi.it/category/javascript.html">Javascript</a>. </p>
+<p>tags: <a href="http://blog.gambuzzi.it/tag/javascript.html">javascript</a> </p>
+</footer><!-- /.post-info -->                <p>Per fare cio' dobbiamo avere la cartella che contiene le immagini listabile.</p>
+<p>Suppioniamo di avere una variabile Array globale chiamate <code>array_immagini</code></p>
+<div class="highlight"><pre><span class="kd">function</span> <span class="nx">loadImages</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">reimg</span> <span class="o">=</span> <span class="sr">/href\=\&quot;(.+?\.(?:jpg|gif|png))\&quot;/gi</span>
+    <span class="nx">xmlhttp</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="s2">&quot;GET&quot;</span><span class="p">,</span> <span class="nx">fld</span><span class="o">+</span><span class="s2">&quot;?C=N;O=A&quot;</span><span class="p">,</span><span class="kc">true</span><span class="p">);</span>
+    <span class="nx">xmlhttp</span><span class="p">.</span><span class="nx">onreadystatechange</span><span class="o">=</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">xmlhttp</span><span class="p">.</span><span class="nx">readyState</span><span class="o">==</span><span class="mi">4</span><span class="p">)</span> <span class="p">{</span>            
+            <span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span> <span class="nb">Array</span><span class="p">(</span><span class="s1">&#39;a ...</span></pre></div>
+                <a class="readmore" href="http://blog.gambuzzi.it/creare-una-array-con-tutte-le-immagini-di-una-cartella.html">read more</a>
+<p>Ci sono <a href="http://blog.gambuzzi.it/creare-una-array-con-tutte-le-immagini-di-una-cartella.html#disqus_thread">commenti</a>.</p>                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="http://blog.gambuzzi.it/settare-le-trasparenze-di-un-oggetto.html" rel="bookmark"
+                           title="Permalink to Settare le trasparenze di un oggetto">Settare le trasparenze di un oggetto</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2010-11-22T01:58:00">
+                Pubblicato: 22 11 2010
+        </abbr>
+
+        <address class="vcard author">
+                Da                         <a class="url fn" href="http://blog.gambuzzi.it/author/roberto-gambuzzi.html">Roberto Gambuzzi</a>
+        </address>
+<p>In <a href="http://blog.gambuzzi.it/category/javascript.html">Javascript</a>. </p>
+<p>tags: <a href="http://blog.gambuzzi.it/tag/javascript.html">javascript</a> </p>
+</footer><!-- /.post-info -->                <p>Questo è incredibilmente supportato anche da IE6.</p>
+<p><code>b</code> contiene la trasparenza nella scala 0-&gt;100</p>
+<p>Il seguente metodo conviene se si vogliono settare anche altri paramentri di stile nel contempo</p>
+<div class="highlight"><pre><span class="nx">text</span> <span class="o">=</span> <span class="s2">&quot; filter: alpha(opacity=&quot;</span><span class="o">+</span><span class="nx">b</span><span class="o">+</span><span class="s2">&quot;); opacity: &quot;</span><span class="o">+</span><span class="p">(</span><span class="nx">b</span><span class="o">/</span><span class="mf">100.0</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot;; -ms-filter: &#39;alpha(opacity=&quot;</span><span class="o">+</span><span class="nx">b</span><span class="o">+</span><span class="s2">&quot;)&#39;;&quot;</span><span class="p">;</span>
+<span class="nx">element</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s2">&quot;style&quot;</span><span class="p">,</span> <span class="nx">text</span><span class="p">);</span>
+<span class="nx">element</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">cssText ...</span></pre></div>
+                <a class="readmore" href="http://blog.gambuzzi.it/settare-le-trasparenze-di-un-oggetto.html">read more</a>
+<p>Ci sono <a href="http://blog.gambuzzi.it/settare-le-trasparenze-di-un-oggetto.html#disqus_thread">commenti</a>.</p>                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="http://blog.gambuzzi.it/animare-un-singolo-valore.html" rel="bookmark"
+                           title="Permalink to Animare un singolo valore">Animare un singolo valore</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2010-11-22T01:49:00">
+                Pubblicato: 22 11 2010
+        </abbr>
+
+        <address class="vcard author">
+                Da                         <a class="url fn" href="http://blog.gambuzzi.it/author/roberto-gambuzzi.html">Roberto Gambuzzi</a>
+        </address>
+<p>In <a href="http://blog.gambuzzi.it/category/javascript.html">Javascript</a>. </p>
+<p>tags: <a href="http://blog.gambuzzi.it/tag/javascript.html">javascript</a> </p>
+</footer><!-- /.post-info -->                <p>Con questo script si puo animere un singolo valore di un oggetto preso per id. </p>
+<div class="highlight"><pre><span class="kd">function</span> <span class="nx">animateSingleVal</span><span class="p">(</span><span class="nx">cosa</span><span class="p">,</span> <span class="nx">a</span><span class="p">,</span> <span class="nx">unita</span><span class="p">,</span> <span class="nx">tempo</span><span class="p">,</span> <span class="nx">callback</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">cosa</span> <span class="o">==</span> <span class="kc">null</span><span class="p">)</span>
+        <span class="k">return</span><span class="p">;</span>
+
+    <span class="nx">da</span> <span class="o">=</span> <span class="nb">parseInt</span><span class="p">(</span><span class="nb">eval</span><span class="p">(</span><span class="nx">cosa</span><span class="p">));</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nb">isNaN</span><span class="p">(</span><span class="nx">da</span><span class="p">))</span>
+        <span class="nx">da</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="nx">tempo</span><span class="o">&gt;</span><span class="mi">40</span><span class="p">)</span>
+    <span class="p">{</span>        
+        <span class="nx">newda</span> <span class="o">=</span> <span class="nx">da</span> <span class="o">+</span> <span class="p">((</span><span class="nx">a</span><span class="o">-</span><span class="nx">da</span><span class="p">)</span> <span class="o">*</span> <span class="mi">40</span> <span class="o">/</span> <span class="nx">tempo</span><span class="p">);</span>  
+        <span class="nb">eval</span><span class="p">(</span><span class="nx">cosa</span><span class="o">+</span><span class="s1">&#39; = &quot;&#39;</span><span class="o">+</span><span class="nb">parseInt</span><span class="p">(</span><span class="nx">newda</span><span class="p">)</span> <span class="o">+</span> <span class="nx">unita</span><span class="o">+</span><span class="s1">&#39;&quot;&#39;</span><span class="p">);</span>
+        <span class="nx">cmd ...</span></pre></div>
+                <a class="readmore" href="http://blog.gambuzzi.it/animare-un-singolo-valore.html">read more</a>
+<p>Ci sono <a href="http://blog.gambuzzi.it/animare-un-singolo-valore.html#disqus_thread">commenti</a>.</p>                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="http://blog.gambuzzi.it/ispezionare-un-oggetto-javascript-var_dump.html" rel="bookmark"
+                           title="Permalink to Ispezionare un oggetto javascript (var_dump)">Ispezionare un oggetto javascript (var_dump)</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2010-11-22T01:48:00">
+                Pubblicato: 22 11 2010
+        </abbr>
+
+        <address class="vcard author">
+                Da                         <a class="url fn" href="http://blog.gambuzzi.it/author/roberto-gambuzzi.html">Roberto Gambuzzi</a>
+        </address>
+<p>In <a href="http://blog.gambuzzi.it/category/javascript.html">Javascript</a>. </p>
+<p>tags: <a href="http://blog.gambuzzi.it/tag/javascript.html">javascript</a> </p>
+</footer><!-- /.post-info -->                <p>Ecco qualcosa di utile e vagamente simile al var_dump del PHP</p>
+<div class="highlight"><pre><span class="kd">function</span> <span class="nx">inspect</span><span class="p">(</span><span class="nx">obj</span><span class="p">,</span> <span class="nx">maxLevels</span><span class="p">,</span> <span class="nx">level</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">str</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="nx">type</span><span class="p">,</span> <span class="nx">msg</span><span class="p">;</span>
+
+    <span class="c1">// Start Input Validations</span>
+    <span class="c1">// Don&#39;t touch, we start iterating at level zero</span>
+    <span class="k">if</span><span class="p">(</span><span class="nx">level</span> <span class="o">==</span> <span class="kc">null</span><span class="p">)</span>  <span class="nx">level</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+    <span class="c1">// At least you want to show the first level</span>
+    <span class="k">if</span><span class="p">(</span><span class="nx">maxLevels</span> <span class="o">==</span> <span class="kc">null</span><span class="p">)</span> <span class="nx">maxLevels ...</span></pre></div>
+                <a class="readmore" href="http://blog.gambuzzi.it/ispezionare-un-oggetto-javascript-var_dump.html">read more</a>
+<p>Ci sono <a href="http://blog.gambuzzi.it/ispezionare-un-oggetto-javascript-var_dump.html#disqus_thread">commenti</a>.</p>                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="http://blog.gambuzzi.it/posizione-in-pixel-di-un-oggetto.html" rel="bookmark"
+                           title="Permalink to Posizione in pixel di un oggetto">Posizione in pixel di un oggetto</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2010-11-22T01:45:00">
+                Pubblicato: 22 11 2010
+        </abbr>
+
+        <address class="vcard author">
+                Da                         <a class="url fn" href="http://blog.gambuzzi.it/author/roberto-gambuzzi.html">Roberto Gambuzzi</a>
+        </address>
+<p>In <a href="http://blog.gambuzzi.it/category/javascript.html">Javascript</a>. </p>
+<p>tags: <a href="http://blog.gambuzzi.it/tag/javascript.html">javascript</a> </p>
+</footer><!-- /.post-info -->                <div class="highlight"><pre><span class="kd">function</span> <span class="nx">findPos</span><span class="p">(</span><span class="nx">obj</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">curleft</span> <span class="o">=</span> <span class="nx">curtop</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">obj</span><span class="p">.</span><span class="nx">offsetParent</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">do</span> <span class="p">{</span>
+            <span class="nx">curleft</span> <span class="o">+=</span> <span class="nx">obj</span><span class="p">.</span><span class="nx">offsetLeft</span><span class="p">;</span>
+            <span class="nx">curtop</span> <span class="o">+=</span> <span class="nx">obj</span><span class="p">.</span><span class="nx">offsetTop</span><span class="p">;</span>
+        <span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="nx">obj</span> <span class="o">=</span> <span class="nx">obj</span><span class="p">.</span><span class="nx">offsetParent</span><span class="p">);</span> <span class="c1">// l&#39;=&#39; non è un errore, serve ad aggiornare obj e testarlo in un unico colpo</span>
+        <span class="k">return</span> <span class="p">[</span><span class="nx">curleft</span><span class="p">,</span><span class="nx">curtop</span><span class="p">];</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+                <a class="readmore" href="http://blog.gambuzzi.it/posizione-in-pixel-di-un-oggetto.html">read more</a>
+<p>Ci sono <a href="http://blog.gambuzzi.it/posizione-in-pixel-di-un-oggetto.html#disqus_thread">commenti</a>.</p>                </div><!-- /.entry-content -->
+            </article></li>
+                </ol><!-- /#posts-list -->
+<p class="paginator">
+    Page 1 / 1
+</p>
+                </section><!-- /#content -->
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>blogroll</h2>
+                        <ul>
+                            <li><a href="http://python.org/">Python.org</a></li>
+                            <li><a href="http://martinfowler.com/">Martin Fowler</a></li>
+                            <li><a href="http://www.joelonsoftware.com/">Joel On Software</a></li>
+                            <li><a href="http://alanstorm.com/">Alan Storm</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+
+                            <li><a href="https://twitter.com/gbinside">Twitter</a></li>
+                            <li><a href="https://github.com/gbinside">GitHub</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                &nbsp;
+                </address><!-- /#about -->
+
+                <p>&nbsp;</p>
+        </footer><!-- /#contentinfo -->
+
+<script type="text/javascript">
+    var disqus_config = function () {
+      this.language = "it";
+    };
+    var disqus_shortname = 'bloggambuzzi';
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
+</body>
+</html>
