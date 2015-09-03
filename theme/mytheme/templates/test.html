@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Morevars - {{ SITENAME|striptags }}
+{% endblock title %}
+
+{% block content %}
+<section id="content" class="body">
+
+<h2>{{ morevars_version }}</h2>
+<pre>
+{{ morevars_debug }}
+</pre>
+
+</section>
+
+{% endblock content %}

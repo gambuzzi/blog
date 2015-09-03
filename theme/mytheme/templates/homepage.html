@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block title %}{{ page.title }}{% endblock %}
+{% block content %}
+<section id="content" class="body">
+    <!--h1 class="entry-title">{{ page.title }}</h1-->
+    {% import 'translations.html' as translations with context %}
+    {{ translations.translations_for(page) }}
+    {% if PDF_PROCESSOR %}<a href="{{ SITEURL }}/pdf/{{ page.slug }}.pdf">get
+    the pdf</a>{% endif %}
+
+    {# { page.content } #}
+
+    <h2>void main()</h2>
+    <p>"{{ "Il vero vantaggio dell'interfaccia grafica &egrave; potere avere console pi&ugrave; grandi" | trans }}" - <em>Marco D'Itri</em></p>
+    <p>"{{ 'Agile is a new word for confusion' | trans }}" - <em>Johannes Huttermeister</em></p>
+    <p>"{{ "Family, religion, friendship. These are the three demons you must slay if you wish to succeed in business." | trans }}" - <em>Charles Montgomery Burns</em></p>
+    <p>"{{ "Real Klingons don't use warnings" | trans }}" - <em>Martok</em></p>
+    <p>"{{ "Automated crap is still crap" | trans }}" - <em>James O Coplien</em></p>
+    <blockquote>
+    <p>{{ "Questo sito web &egrave; stato realizzato con particolari tecniche di sviluppo, eventuali anomalie funzionali sono da considerarsi un pregio!" | trans }}</p>
+    </blockquote>
+
+</section>
+<section id="lasta" class="body">
+    <h2>{{ _('last_article') }}</h2>
+
+    {% if articles %}
+        {% for article in articles %}
+            {# First item #}
+            {% if loop.first %}
+                <aside id="featured" class="body">
+                    <article>
+                        <h1 class="entry-title"><a href="{{ SITEURL }}/{{ article.url }}">{{ article.category }} - {{ article.title }}</a></h1>
+                        {% include 'article_infos.html' %}{{ article.content }}{% include 'comments.html' %}
+                    </article>
+                </aside><!-- /#featured -->
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+</section>
+{% endblock %}

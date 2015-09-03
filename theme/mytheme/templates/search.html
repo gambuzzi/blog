@@ -1,0 +1,136 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{{ 'Search'|trans }} - {{ SITENAME|striptags }}
+{% endblock title %}
+
+{% block content %}
+<section id="content" class="body">
+
+<form method="GET">
+  {{ 'Cerca'|trans }}: <input type="text" name="q" id="q"/>
+  <input type="submit" value="{{ 'Cerca'|trans }}" class="btn"/>
+  <div class="guess">{{ 'Forse cercavi'|trans }}: <span class="guessed">&nbsp;</span></div>
+</form>
+
+<div class="loading">&nbsp;</div>
+<div id="search_content"></div>
+
+</section>
+
+<script type="text/javascript">
+
+$(function ( ) {
+  $('#headsearch').remove();
+
+  var db = {};
+  var titles = {};
+  var fuzzy_set = null;
+
+  function padLeft(nr, n, str){
+      return Array(n-String(parseInt(nr)).length+1).join(str||'0')+nr;
+  }
+
+  function getParameterByName(name) {
+      name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+      var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+          results = regex.exec(location.search);
+      return results == null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+  }
+
+  $('#q').val(getParameterByName('q'));
+
+  function spell(terms) {
+    var results = fuzzy_set.get(terms) || [];
+
+    var score = 0;
+    if (results) {
+      score = results[0][0];
+    }
+
+    var ret = [];
+    var multiscore = null;
+    var aterms = terms.split(' ');
+    $.each(aterms, function (k, term) {
+       var res = fuzzy_set.get(term) || [];
+       if (res[0]) {
+          if (multiscore == null) {
+              multiscore = 1.0;
+          }
+          multiscore *= res[0][0];
+          ret.push(res[0][1]);
+       }
+    });
+
+    if (multiscore>score) {
+      return ret;
+    } else {
+      return [results[0][1]];
+    }
+  }
+
+  function search(terms) {
+    $('loading').show();
+    $('#search_content').html('&nbsp;');
+
+    var spelled_terms = spell(terms);
+    if (spelled_terms.join(' ') != terms) {
+      $('.guess').show();
+      $('.guessed').html("<a href='?q="+spelled_terms.join('+')+"'>"+spelled_terms.join(' ')+'</a>');
+    } else {
+      $('.guess').hide();
+    }
+
+    var scores = [];
+    $.each( db, function( key, val ) {
+        var score = 0.0 ;
+        $.each(spelled_terms, function (k2, v2) {
+            if (v2 in val) {
+              score += Math.abs(val[v2]);
+            }
+        });
+        if (score) {
+            scores.push([padLeft(score,10), key]);
+        }
+    });
+    scores.sort();
+    scores.reverse();
+//    scores = scores.slice(0,10);
+
+    var items = [];
+    $.each( scores, function( key, val ) {
+      items.push('<li><a href="'+val[1]+'">'+titles[val[1]]+'</a></li>');
+    });
+
+    $( "<ul/>", {
+      "class": "my-result-list",
+      html: items.join( "" )
+    }).appendTo( "#search_content" );
+
+    $('.loading').hide();
+  }
+
+  $.getJSON("{{ SITEURL }}/search.json", function (data) {
+    fuzzy_set = FuzzySet(data.words);
+    db = data.db;
+    titles = data.titles;
+
+    if ($('#q').val()) {
+      search($('#q').val());
+    } else {
+      $('.loading').hide();
+    }
+  });
+
+  $('form').submit(function () {
+      if ($('#q').val()) {
+          search($('#q').val());
+      }
+      return false;
+  });
+
+});
+
+</script>
+
+{% endblock content %}
